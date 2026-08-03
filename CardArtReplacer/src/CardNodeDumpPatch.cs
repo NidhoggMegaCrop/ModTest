@@ -1,94 +1,54 @@
-using System.Collections.Generic;
+using System;
 using System.Reflection;
 using HarmonyLib;
-using Godot;
 
 namespace CardArtReplacer;
 
 /// <summary>
-/// 【调试用，搞清结构后可删】把第一张卡的视觉节点树 dump 到日志，
-/// 用来确定"全图异画"要撑大/隐藏哪些节点（如 _portrait / _frame / _banner）。
-///
-/// 手动安装（不走 PatchAll）：找不到目标只记一条日志，绝不影响核心换图补丁。
-/// 只 dump 第一张卡，避免刷屏。
+/// 【调试用，搞清结构后可删】在启动时用反射把 NCard 类的字段/属性/方法列进日志。
+/// 用来确定"全图异画"要 hook 哪个普通方法、以及 _portrait/_frame 等节点怎么访问。
+/// 不 hook 生命周期方法（Harmony 拦不住 Godot 的 _Ready）；纯反射，不显示卡牌也能跑。
 /// </summary>
 public static class CardNodeDumpPatch
 {
-    static bool _dumped;
-
     public static void TryInstall(Harmony harmony)
     {
         if (!Entry.DumpCardNodes) return;
 
-        var postfix = new HarmonyMethod(AccessTools.Method(typeof(CardNodeDumpPatch), nameof(Postfix)));
-        int hooked = 0;
-        foreach (var mi in FindTargets())
-        {
-            try
-            {
-                harmony.Patch(mi, postfix: postfix);
-                hooked++;
-                Entry.LogInfo($"[dump] hooked {mi.DeclaringType?.FullName}.{mi.Name}");
-            }
-            catch (System.Exception e)
-            {
-                Entry.LogInfo($"[dump] hook failed {mi.Name}: {e.Message}");
-            }
-        }
-        if (hooked == 0)
-            Entry.LogInfo("[dump] 未找到卡牌视觉方法——把这条发我，我换类名/方法名再试。");
+        // 类型名由日志确认：MegaCrit.Sts2.Core.Nodes.Cards.NCard
+        var t = AccessTools.TypeByName("MegaCrit.Sts2.Core.Nodes.Cards.NCard")
+                ?? AccessTools.TypeByName("NCard");
+        if (t == null) { Entry.LogInfo("[dump] NCard 类型未找到"); return; }
+
+        DumpOne(t);
+        // 顺带把父类（若也是游戏类）列一层，视觉刷新方法可能在父类上。
+        var b = t.BaseType;
+        if (b?.FullName != null && b.FullName.StartsWith("MegaCrit"))
+            DumpOne(b);
     }
 
-    // 只取“在该类型上直接声明”的方法（DeclaredMethod），避免误挂到基类 Node._Ready 上导致对所有节点生效。
-    static IEnumerable<MethodBase> FindTargets()
+    static void DumpOne(Type t)
     {
-        string[] types =
-        {
-            // 命名空间线索来自 SignatureLib（Entities.UI）与游戏日志（Nodes）。
-            "MegaCrit.Sts2.Core.Entities.UI.NCard",
-            "MegaCrit.Sts2.Core.Entities.UI.NCardComponent",
-            "MegaCrit.Sts2.Core.Nodes.NCard",
-            "MegaCrit.Sts2.Core.Nodes.NCardComponent",
-            "NCard",
-            "NCardComponent",
-        };
-        // UpdateVisual 来自 SignatureLib 的方法名，很可能就是卡牌视觉刷新入口。
-        string[] methods = { "UpdateVisual", "UpdateCardDisplay", "RefreshCard", "UpdateCard", "SetCard", "_Ready" };
+        const BindingFlags F = BindingFlags.Instance | BindingFlags.Static
+                             | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.DeclaredOnly;
 
-        var seen = new HashSet<MethodBase>();
-        foreach (var tn in types)
+        Entry.LogInfo($"[dump] ==== {t.FullName} (base {t.BaseType?.Name}) ====");
+
+        foreach (var f in t.GetFields(F))
         {
-            var t = AccessTools.TypeByName(tn);
-            if (t == null) continue;
-            foreach (var mn in methods)
-            {
-                var mi = AccessTools.DeclaredMethod(t, mn);
-                if (mi != null && seen.Add(mi)) yield return mi;
-            }
+            if (f.Name.Contains('<')) continue; // 跳过编译器生成的 backing field
+            Entry.LogInfo($"[dump] field  {Short(f.FieldType)} {f.Name}");
         }
-    }
-
-    public static void Postfix(object __instance)
-    {
-        if (_dumped || !Entry.DumpCardNodes) return;
-        if (__instance is not Node node) return;
-        _dumped = true;
-
-        Entry.LogInfo($"[dump] ==== card node tree from {node.GetType().FullName} ====");
-        Dump(node, 0);
+        foreach (var p in t.GetProperties(F))
+            Entry.LogInfo($"[dump] prop   {Short(p.PropertyType)} {p.Name}");
+        foreach (var m in t.GetMethods(F))
+        {
+            if (m.IsSpecialName || m.Name.Contains('<')) continue; // 跳过 get_/set_ 与 lambda
+            var ps = string.Join(", ", Array.ConvertAll(m.GetParameters(), x => $"{Short(x.ParameterType)} {x.Name}"));
+            Entry.LogInfo($"[dump] method {Short(m.ReturnType)} {m.Name}({ps})");
+        }
         Entry.LogInfo("[dump] ==== end ====");
     }
 
-    static void Dump(Node n, int depth)
-    {
-        string extra = n switch
-        {
-            Control c => $" [Control size={c.Size} vis={c.Visible}]",
-            Node2D n2 => $" [Node2D pos={n2.Position} vis={n2.Visible}]",
-            _ => ""
-        };
-        Entry.LogInfo($"[dump] {new string(' ', depth * 2)}{n.Name} : {n.GetType().Name}{extra}");
-        foreach (var child in n.GetChildren())
-            Dump(child, depth + 1);
-    }
+    static string Short(Type t) => t.Name;
 }
