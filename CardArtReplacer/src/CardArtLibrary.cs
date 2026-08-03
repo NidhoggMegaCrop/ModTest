@@ -5,21 +5,22 @@ using Godot;
 namespace CardArtReplacer;
 
 /// <summary>
-/// 扫描 image/cards/** 下所有图片，建立 “归一化卡牌类名 -> 资源路径” 映射。
-/// 子目录（defect / regent / colorless / curse / 任意名）仅供你自己整理，
-/// 解析时与目录无关，只看文件名。
-/// 补丁按卡牌**类名**（如 BigBang）来查，文件名按同样规则归一化后匹配。
+/// 按卡牌**类名**解析出对应的 res:// 图片路径。
+/// 不遍历目录（导出成 pck 后目录遍历不可靠），而是拼出候选路径用 ResourceLoader.Exists 逐个查——
+/// 这在 pck 里是可靠的。文件名 = 卡牌类名（小写，或原样大小写皆可）。
 /// </summary>
 public static class CardArtLibrary
 {
-    private static readonly Dictionary<string, string> _paths = new();       // key -> res://...
+    // 类名 -> 解析结果缓存（res 路径，或 null 表示没配图）。
+    private static readonly Dictionary<string, string?> _cache = new();
 
-    public static int Count => _paths.Count;
+    // 在这些子目录（外加根目录 ""）下按“类名.png”查找。想用别的子目录名就往这里加。
+    public static string[] SubFolders = { "", "defect", "regent", "colorless", "curse" };
+    private static readonly string[] Exts = { ".png", ".jpg", ".jpeg" };
 
-    /// <summary>
-    /// 归一化：全小写、去掉下划线/连字符/空格。
-    /// 这样类名 "BigBang" 与文件 "bigbang.png"、"big_bang.png" 都能对上。
-    /// </summary>
+    public static int Count => _cache.Count;
+
+    /// <summary>全小写、去掉下划线/连字符/空格。</summary>
     public static string Normalize(string? id)
     {
         if (string.IsNullOrEmpty(id)) return "";
@@ -32,49 +33,43 @@ public static class CardArtLibrary
         return sb.ToString();
     }
 
-    /// <summary>重新扫描目录（改完图后调用即可热更新映射）。</summary>
-    public static void Rescan()
+    /// <summary>清空缓存（改完图/改子目录列表后调用即可重新解析）。</summary>
+    public static void Rescan() => _cache.Clear();
+
+    /// <summary>按卡牌类名取 res:// 图片路径；没有则返回 null（保留原版画）。</summary>
+    public static string? ResolvePath(string? cardClassName)
     {
-        _paths.Clear();
-        ScanDir(Entry.CardsRoot);
-        Entry.LogInfo($"scanned card art dir, {_paths.Count} files");
+        if (string.IsNullOrEmpty(cardClassName)) return null;
+        if (_cache.TryGetValue(cardClassName, out var cached)) return cached;
+
+        string? found = Search(cardClassName);
+        _cache[cardClassName] = found;
+        return found;
     }
 
-    private static void ScanDir(string dir)
+    /// <summary>本 mod 期望的主命名（用于日志提示）：小写类名。</summary>
+    public static string PreferredFileName(string cardClassName) => Normalize(cardClassName) + ".png";
+
+    static string? Search(string cardClassName)
     {
-        using var da = DirAccess.Open(dir);
-        if (da == null) return;
-
-        da.ListDirBegin();
-        for (string name = da.GetNext(); name != string.Empty; name = da.GetNext())
+        string lower = Normalize(cardClassName);
+        foreach (var sub in SubFolders)
         {
-            if (name.StartsWith(".")) continue;
-            string full = dir.TrimEnd('/') + "/" + name;
-
-            if (da.CurrentIsDir())
+            string dir = sub.Length == 0
+                ? $"res://{Entry.ModId}/image/cards/"
+                : $"res://{Entry.ModId}/image/cards/{sub}/";
+            foreach (var ext in Exts)
             {
-                ScanDir(full); // 递归子目录
-            }
-            else
-            {
-                string lower = name.ToLowerInvariant();
-                if (lower.EndsWith(".png") || lower.EndsWith(".jpg") || lower.EndsWith(".jpeg"))
+                // 先试小写类名（如 ascendersbane.png），再试原样类名（如 AscendersBane.png）。
+                string p1 = dir + lower + ext;
+                if (ResourceLoader.Exists(p1)) return p1;
+                if (cardClassName != lower)
                 {
-                    string key = Normalize(System.IO.Path.GetFileNameWithoutExtension(name));
-                    if (_paths.ContainsKey(key))
-                        Entry.LogInfo($"duplicate card id '{key}', using {full}");
-                    _paths[key] = full;
+                    string p2 = dir + cardClassName + ext;
+                    if (ResourceLoader.Exists(p2)) return p2;
                 }
             }
         }
-        da.ListDirEnd();
-    }
-
-    /// <summary>按卡牌类名取 res:// 图片路径；没有对应图片时返回 null（保留原版画）。</summary>
-    public static string? ResolvePath(string? cardClassName)
-    {
-        string key = Normalize(cardClassName);
-        if (key.Length == 0) return null;
-        return _paths.TryGetValue(key, out var path) ? path : null;
+        return null;
     }
 }

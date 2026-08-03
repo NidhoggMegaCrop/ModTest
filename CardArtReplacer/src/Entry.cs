@@ -29,7 +29,6 @@ public class Entry
     public static void Init()
     {
         LogInfo("init begin");
-        CardArtLibrary.Rescan();
 
         var harmony = new Harmony("sts2." + ModId.ToLowerInvariant());
         harmony.PatchAll();
@@ -37,7 +36,7 @@ public class Entry
         // 让 .tscn 能加载本程序集内的自定义脚本（官方模板通用写法；本 mod 无自定义脚本也无害）。
         ScriptManagerBridge.LookupScriptsInAssembly(typeof(Entry).Assembly);
 
-        LogInfo($"{CardArtLibrary.Count} card skins loaded, patched.");
+        LogInfo($"patched. card art resolves on demand from res://{ModId}/image/cards/**.");
     }
 
     public static void LogInfo(string msg) => Log.Info($"[{ModId}] {msg}");

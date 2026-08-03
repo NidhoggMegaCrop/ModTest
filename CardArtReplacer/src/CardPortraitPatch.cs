@@ -39,8 +39,8 @@ public static class CardPortraitPatch
         if (Entry.DiscoverCardNames && _seen.Add(className))
         {
             string hint = path != null
-                ? "matched your art"
-                : $"no art — file it as {className.ToLowerInvariant()}.png";
+                ? $"matched: {path}"
+                : $"no art — put {CardArtLibrary.PreferredFileName(className)} under res://{Entry.ModId}/image/cards/<subfolder>/";
             Entry.LogInfo($"card class: {className}  ->  {hint}");
         }
 

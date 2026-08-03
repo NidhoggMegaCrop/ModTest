@@ -34,9 +34,11 @@ CardArtReplacer/
 ## 3. 加/换一张卡的图（不用懂编程）
 
 1. 做一张 **606×852 PNG**，整张全出血（含边框+标题底；**别**把费用/描述文字做进去）。
-2. 命名为该卡的 **类名**（大小写、下划线都不敏感）：`BigBang` 这张卡命名成
-   `bigbang.png`、`BigBang.png` 或 `big_bang.png` 都能匹配。
-3. 丢进 `image/cards/` 下任意子目录（目录只为你自己整理，程序只认文件名）。
+2. 命名为该卡的 **类名**（小写最稳，如 `ascendersbane.png`；原样大小写 `AscendersBane.png`
+   也认；但**不要加下划线**）。以发现模式日志给出的名字为准。
+3. 放进 `image/cards/` 的根目录，或 `defect/ regent/ colorless/ curse/` 这几个子目录之一
+   （程序在这些位置按“类名.png”查找）。想用别的子目录名，就在 `src/CardArtLibrary.cs`
+   的 `SubFolders` 里加上。
 4. 重新导出 pck（见第 6 节）进游戏即可。命名细节另见 `image/cards/README.txt`。
 
 > 卡牌用**类名**标识（官方做法：`__instance.GetType().Name`），不是 snake_case 的 id。
