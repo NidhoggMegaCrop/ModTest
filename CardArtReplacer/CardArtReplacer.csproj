@@ -42,14 +42,13 @@
     <Copy SourceFiles="$(MSBuildProjectName).json" DestinationFolder="$(Sts2Dir)\mods\$(MSBuildProjectName)\" />
   </Target>
 
-  <!-- 可选：dotnet build -t:ExportPck 时，让 Godot 无头导出 pck 到 mods 目录 -->
-  <!--
+  <!-- 可选：仅在你显式运行 dotnet build -t:ExportPck 时触发（需先在上面填 GodotExe）。
+       平时 dotnet build 不会碰它。-->
   <Target Name="ExportPck">
     <Message Text="Exporting PCK..." Importance="high" />
     <Exec Command="&quot;$(GodotExe)&quot; --headless --export-pack &quot;Windows Desktop&quot; &quot;$(Sts2Dir)\mods\$(MSBuildProjectName)\$(MSBuildProjectName).pck&quot;"
           EnvironmentVariables="IsInnerGodotExport=true;MSBUILDDISABLENODEREUSE=1"
           ContinueOnError="WarnAndContinue" />
   </Target>
-  -->
 
 </Project>
