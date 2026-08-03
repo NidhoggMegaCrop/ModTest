@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    精简版卡面替换 mod 的编译工程。
+    本环境无 dotnet / 无游戏程序集，无法在此编译；请在本地按 README「编译」一节操作。
+  -->
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>          <!-- Godot 4.5 使用 .NET 8；与游戏一致 -->
+    <AssemblyName>CardArtReplacer</AssemblyName>
+    <Nullable>disable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <EnableDynamicLoading>true</EnableDynamicLoading>  <!-- 让程序集可被游戏动态加载 -->
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+
+    <!-- 指向你本地游戏安装目录（含 GodotSharp.dll / 游戏程序集）。命令行可用 -p:GameDir=... 覆盖。 -->
+    <GameDir Condition="'$(GameDir)' == ''">C:\Path\To\SlayTheSpire2</GameDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Harmony：若游戏本体已附带 0Harmony.dll，改成对它的 Reference 更稳，避免版本冲突。 -->
+    <PackageReference Include="Lib.Harmony" Version="2.3.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- 以下均为“编译期引用、不打包”（Private=false）。HintPath 按你机器实际路径调整。 -->
+    <Reference Include="GodotSharp">
+      <HintPath>$(GameDir)\GodotSharp.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <!-- VERIFY: 游戏核心程序集名以实际为准（逆向可见 MegaCrit.Sts2.Core.*）。 -->
+    <Reference Include="MegaCrit.Sts2.Core">
+      <HintPath>$(GameDir)\MegaCrit.Sts2.Core.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+</Project>
