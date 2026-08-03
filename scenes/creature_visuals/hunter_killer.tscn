@@ -1,0 +1,101 @@
+[gd_scene load_steps=13 format=3 uid="uid://q085iiyfpysp"]
+
+[ext_resource type="Script" uid="uid://dwlmik3slusrf" path="res://src/Core/Nodes/Combat/NCreatureVisuals.cs" id="1"]
+[ext_resource type="SpineAtlasResource" uid="uid://csavxjfkswm5q" path="res://Spine/hunter_killer/hunter_killer.atlas" id="2"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://cvn6gj24bj33h" path="res://Spine/hunter_killer/hunter_killer.skel" id="3"]
+[ext_resource type="Texture2D" uid="uid://l5q2pb336ly5" path="res://images/vfx/spit_glob_particles.png" id="4"]
+[ext_resource type="Script" uid="uid://cxvgve7oeh08r" path="res://src/Core/Nodes/Vfx/NHunterKillerVfx.cs" id="5"]
+
+[sub_resource type="SpineSkeletonDataResource" id="SpineSkeletonDataResource_ueho7"]
+atlas_res = ExtResource("2")
+skeleton_file_res = ExtResource("3")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qga7p"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 2
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_lw4ff"]
+colors = PackedColorArray(0.586712, 0.586712, 0.586712, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_05sgb"]
+gradient = SubResource("Gradient_lw4ff")
+
+[sub_resource type="Curve" id="Curve_vxnte"]
+_data = [Vector2(0, 0.274725), 0.0, 5.57949, 0, 0, Vector2(0.314732, 1), 0.0, 0.0, 0, 0, Vector2(0.580357, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.104396), -4.1991, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_qga7p"]
+curve = SubResource("Curve_vxnte")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lw4ff"]
+particle_flag_disable_z = true
+angle_min = 1.07288e-05
+angle_max = 360.0
+direction = Vector3(-1, -0.5, 0)
+spread = 10.0
+initial_velocity_min = 1000.0
+initial_velocity_max = 1200.0
+angular_velocity_min = -400.0
+angular_velocity_max = -200.0
+gravity = Vector3(0, 900, 0)
+scale_min = 0.4
+scale_max = 0.7
+scale_curve = SubResource("CurveTexture_qga7p")
+color = Color(0.99, 0.95733, 0.6633, 1)
+color_initial_ramp = SubResource("GradientTexture1D_05sgb")
+hue_variation_min = -2.23517e-08
+hue_variation_max = 0.1
+anim_offset_max = 1.0
+
+[node name="HunterKiller" type="Node2D"]
+script = ExtResource("1")
+metadata/_edit_group_ = true
+
+[node name="Visuals" type="SpineSprite" parent="."]
+skeleton_data_res = SubResource("SpineSkeletonDataResource_ueho7")
+preview_skin = "default"
+preview_animation = "-- Empty --"
+preview_frame = false
+preview_time = 0.91
+unique_name_in_owner = true
+position = Vector2(10, -180)
+scale = Vector2(0.25, 0.25)
+metadata/_edit_lock_ = true
+
+[node name="MouthBone" type="SpineBoneNode" parent="Visuals"]
+bone_name = "bone62"
+show_behind_parent = true
+position = Vector2(-349.99304, -591.78906)
+rotation = -0.7188669
+
+[node name="Particles" type="GPUParticles2D" parent="Visuals/MouthBone"]
+material = SubResource("CanvasItemMaterial_qga7p")
+scale = Vector2(3, 3)
+emitting = false
+amount = 40
+texture = ExtResource("4")
+lifetime = 0.8
+speed_scale = 1.2
+process_material = SubResource("ParticleProcessMaterial_lw4ff")
+
+[node name="NHunterKillerVfx" type="Node" parent="Visuals"]
+script = ExtResource("5")
+
+[node name="Bounds" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -250.0
+offset_top = -378.0
+offset_right = 230.0
+mouse_filter = 2
+
+[node name="CenterPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -169)
+
+[node name="IntentPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-20, -405)

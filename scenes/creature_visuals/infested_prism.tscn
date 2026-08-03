@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmn6ctnd2b1ur"]
+
+[ext_resource type="Script" uid="uid://dwlmik3slusrf" path="res://src/Core/Nodes/Combat/NCreatureVisuals.cs" id="1"]
+[ext_resource type="SpineAtlasResource" uid="uid://hgfqtkadpa0u" path="res://Spine/infested_prism/infested_prism.atlas" id="2"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://cqhw4m3y06xq3" path="res://Spine/infested_prism/infested_prism.skel" id="3"]
+
+[sub_resource type="SpineSkeletonDataResource" id="SpineSkeletonDataResource_obcgu"]
+atlas_res = ExtResource("2")
+skeleton_file_res = ExtResource("3")
+
+[node name="EvilGas" type="Node2D"]
+script = ExtResource("1")
+metadata/_edit_group_ = true
+
+[node name="Visuals" type="SpineSprite" parent="."]
+skeleton_data_res = SubResource("SpineSkeletonDataResource_obcgu")
+preview_skin = "Default"
+preview_animation = "-- Empty --"
+preview_frame = false
+preview_time = 0.0
+unique_name_in_owner = true
+position = Vector2(0, -180)
+scale = Vector2(0.28, 0.28)
+
+[node name="HeightController" type="SpineBoneNode" parent="Visuals"]
+bone_mode = 1
+thickness = 99.0
+bone_name = "height_modifier"
+show_behind_parent = true
+position = Vector2(-1503.524, -625.089)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="Bounds" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -140.0
+offset_top = -420.0
+offset_right = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="CenterPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-4, -270)
+
+[node name="IntentPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(2, -430)
