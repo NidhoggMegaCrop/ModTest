@@ -22,6 +22,10 @@ public class Entry
     // 卡图根目录：res://CardArtReplacer/image/cards/**（子目录随你整理）
     public static readonly string CardsRoot = $"res://{ModId}/image/cards";
 
+    // 发现模式：把每个遇到的卡牌类名打进日志一次，帮你确定卡图文件该叫什么名字。
+    // 图配齐后可改成 false 关掉日志。
+    public static bool DiscoverCardNames = true;
+
     public static void Init()
     {
         LogInfo("init begin");

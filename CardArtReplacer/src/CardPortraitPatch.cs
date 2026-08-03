@@ -24,11 +24,26 @@ public static class CardPortraitPatch
         return getter;
     }
 
+    // 已在日志里报告过的卡牌类名（发现模式用，每个只打一次）。
+    static readonly System.Collections.Generic.HashSet<string> _seen = new();
+
     // 官方 Postfix：把卡图路径替换成我们的图。__instance 即 CardModel 实例。
     static void Postfix(object __instance, ref string __result)
     {
         string? className = __instance?.GetType().Name;      // 卡牌用类名标识，如 BigBang / AllForOne
+        if (string.IsNullOrEmpty(className)) return;
+
         string? path = CardArtLibrary.ResolvePath(className);
+
+        // 发现模式：把遇到的卡牌类名打进日志（每个只打一次），方便你确定文件该叫什么。
+        if (Entry.DiscoverCardNames && _seen.Add(className))
+        {
+            string hint = path != null
+                ? "matched your art"
+                : $"no art — file it as {className.ToLowerInvariant()}.png";
+            Entry.LogInfo($"card class: {className}  ->  {hint}");
+        }
+
         if (path == null) return;                            // 没配图：保留原版
         if (!ResourceLoader.Exists(path)) return;
         __result = path;
@@ -36,9 +51,10 @@ public static class CardPortraitPatch
 }
 
 /*
-本地确认 CardModel 命名空间后，可直接用官方强类型写法（与教程一字不差，更简洁）：
+CardModel 位于命名空间 MegaCrit.Sts2.Core.Models.Cards（由卡牌类型全名确认，
+如 MegaCrit.Sts2.Core.Models.Cards.AscendersBane）。因此可直接用官方强类型写法：
 
-using MegaCrit.Sts2.Core; // 或 CardModel 实际所在命名空间
+using MegaCrit.Sts2.Core.Models.Cards;   // CardModel 及各卡牌类所在命名空间
 
 [HarmonyPatch(typeof(CardModel), nameof(CardModel.PortraitPath), MethodType.Getter)]
 public static class CardModel_GetPortrait_Patch

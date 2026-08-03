@@ -41,7 +41,16 @@ CardArtReplacer/
 
 > 卡牌用**类名**标识（官方做法：`__instance.GetType().Name`），不是 snake_case 的 id。
 > 原版卡类名基本就是卡名去空格的 PascalCase（`All For One` → `AllForOne`）。
-> 拿不准就反编译本地 `sts2.dll`，或用教程侧栏的「ID 生成器」查。
+> 卡牌类完整类型名形如 `MegaCrit.Sts2.Core.Models.Cards.AscendersBane`——你要的只是
+> **最后一段**（`AscendersBane`），文件名写 `ascendersbane.png`，别带命名空间前缀。
+
+### 怎么确定每张卡的类名
+
+- **内置发现模式（最省事）**：`Entry.DiscoverCardNames` 默认为 `true`。进游戏后，你每遇到
+  一张卡，日志里就会打出它的类名，并提示"该命名成 xxx.png / 已匹配到你的图"。照着日志改文件名即可。
+  图配齐后把这个开关设成 `false` 关掉日志。
+- 反编译本地 `sts2.dll`，看命名空间 `MegaCrit.Sts2.Core.Models.Cards` 下的所有卡牌类。
+- 教程侧栏的「工具 / ID 生成器」。
 
 ## 4. 开发环境（官方教程确认）
 
@@ -106,8 +115,9 @@ static void Postfix(CardModel __instance, ref string __result)
 本工程的 `CardPortraitPatch.cs` 用**反射**版实现同样的逻辑（`AccessTools.PropertyGetter`），
 好处是编译期不依赖 `CardModel` 的具体命名空间，**开箱即能 build**。
 
-唯一可选的一步：若你想换成上面的**强类型写法**（更简洁），需要在文件顶部
-`using` 上 `CardModel` 所在的命名空间（反编译 `sts2.dll` 一看便知）。不换就保持反射版即可，
+唯一可选的一步：若你想换成上面的**强类型写法**（更简洁），在文件顶部
+`using MegaCrit.Sts2.Core.Models.Cards;`（`CardModel` 及各卡牌类就在这个命名空间，
+由卡牌全名 `MegaCrit.Sts2.Core.Models.Cards.AscendersBane` 确认）。不换就保持反射版即可，
 功能完全一样。
 
 > 说明：官方明确此法「只能替换原版卡图」——正好覆盖你要的原版角色/无色/诅咒卡。
