@@ -1,37 +1,55 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Godot.NET.Sdk/4.5.1">
 
   <!--
-    精简版卡面替换 mod 的编译工程。
-    本环境无 dotnet / 无游戏程序集，无法在此编译；请在本地按 README「编译」一节操作。
+    按官方教程（环境配置一章）编写。本云端环境无 dotnet / 无游戏程序集，
+    无法在此编译；请在本地 dotnet build（见 README「编译」）。
+    使用前只需把下面 Sts2Dir 改成你本机的杀戮尖塔2安装目录。
   -->
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>          <!-- Godot 4.5 使用 .NET 8；与游戏一致 -->
-    <AssemblyName>CardArtReplacer</AssemblyName>
-    <Nullable>disable</Nullable>
-    <LangVersion>latest</LangVersion>
-    <EnableDynamicLoading>true</EnableDynamicLoading>  <!-- 让程序集可被游戏动态加载 -->
+    <TargetFramework>net9.0</TargetFramework>          <!-- 若装的是 .NET 10 且报错，改这里 -->
+    <ImplicitUsings>true</ImplicitUsings>
+    <LangVersion>13.0</LangVersion>
+    <Nullable>enable</Nullable>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 
-    <!-- 指向你本地游戏安装目录（含 GodotSharp.dll / 游戏程序集）。命令行可用 -p:GameDir=... 覆盖。 -->
-    <GameDir Condition="'$(GameDir)' == ''">C:\Path\To\SlayTheSpire2</GameDir>
+    <!-- ★ 改成你的杀戮尖塔2目录 -->
+    <Sts2Dir>D:\Steam\steamapps\common\Slay the Spire 2</Sts2Dir>
+    <Sts2DataDir>$(Sts2Dir)\data_sts2_windows_x86_64</Sts2DataDir>
+
+    <!-- 可选：Godot 4.5.1 Mono 可执行文件路径，仅在用 dotnet 直接导出 pck 时需要 -->
+    <!-- <GodotExe>D:\...\Godot_v4.5.1-stable_mono_win64.exe</GodotExe> -->
   </PropertyGroup>
 
   <ItemGroup>
-    <!-- Harmony：若游戏本体已附带 0Harmony.dll，改成对它的 Reference 更稳，避免版本冲突。 -->
-    <PackageReference Include="Lib.Harmony" Version="2.3.3" />
+    <!-- 游戏核心程序集（文件名 sts2.dll，命名空间为 MegaCrit.Sts2.Core.*） -->
+    <Reference Include="sts2">
+      <HintPath>$(Sts2DataDir)\sts2.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <!-- 游戏自带的 Harmony，不用 NuGet -->
+    <Reference Include="0Harmony">
+      <HintPath>$(Sts2DataDir)\0Harmony.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
   </ItemGroup>
 
-  <ItemGroup>
-    <!-- 以下均为“编译期引用、不打包”（Private=false）。HintPath 按你机器实际路径调整。 -->
-    <Reference Include="GodotSharp">
-      <HintPath>$(GameDir)\GodotSharp.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <!-- VERIFY: 游戏核心程序集名以实际为准（逆向可见 MegaCrit.Sts2.Core.*）。 -->
-    <Reference Include="MegaCrit.Sts2.Core">
-      <HintPath>$(GameDir)\MegaCrit.Sts2.Core.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-  </ItemGroup>
+  <!-- 构建后自动把 dll 和 json 清单复制到 游戏/mods/CardArtReplacer/ -->
+  <Target Name="CopyMod" AfterTargets="PostBuildEvent">
+    <Message Text="Copying mod to Slay the Spire 2 mods folder..." Importance="high" />
+    <MakeDir Directories="$(Sts2Dir)\mods\" />
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(Sts2Dir)\mods\$(MSBuildProjectName)\" />
+    <Copy SourceFiles="$(MSBuildProjectName).json" DestinationFolder="$(Sts2Dir)\mods\$(MSBuildProjectName)\" />
+  </Target>
+
+  <!-- 可选：dotnet build -t:ExportPck 时，让 Godot 无头导出 pck 到 mods 目录 -->
+  <!--
+  <Target Name="ExportPck">
+    <Message Text="Exporting PCK..." Importance="high" />
+    <Exec Command="&quot;$(GodotExe)&quot; --headless --export-pack &quot;Windows Desktop&quot; &quot;$(Sts2Dir)\mods\$(MSBuildProjectName)\$(MSBuildProjectName).pck&quot;"
+          EnvironmentVariables="IsInnerGodotExport=true;MSBUILDDISABLENODEREUSE=1"
+          ContinueOnError="WarnAndContinue" />
+  </Target>
+  -->
 
 </Project>

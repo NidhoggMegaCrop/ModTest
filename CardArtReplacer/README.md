@@ -2,92 +2,112 @@
 
 一个按 `RTRsMoeifyMod` 蓝图重建、**只保留卡面替换**的杀戮尖塔2 mod。
 去掉了原框架的自定义边框、远古立绘、画师鸣谢、配置开关等一切其它功能。
+工程按**官方教程（环境配置一章）**校准，本地 `dotnet build` 即可。
 
-你要做的只有两件事：**把 606×852 的图按卡牌 id 命名，丢进 `image/cards/` 里**。
+你日常要做的只有一件事：**把 606×852 的图按卡牌 id 命名，丢进 `image/cards/` 里。**
 
 ---
 
 ## 1. 它做什么 / 不做什么
 
 - ✅ 把原版角色卡、无色卡、诅咒卡的**立绘换成你的整图**，铺满整张 606×852 卡面。
-- ✅ 你的图自带边框/标题底（全图异画），游戏仍在其上渲染动态文字（费用/名称/描述/关键字）。
-- ❌ 不画自定义边框、不换远古立绘、不显示画师鸣谢、没有任何配置项。
-- ❌ 不新增卡牌/不改数值 —— 这是**换画**框架，不是加卡框架。
+- ✅ 你的图自带边框/标题底（全图异画）；游戏仍在其上渲染动态文字（费用/名称/描述/关键字）。
+- ❌ 不画自定义边框、不换远古立绘、不显示鸣谢、无任何配置项。
+- ❌ 不新增卡牌/不改数值——这是**换画**框架，不是加卡框架。
 
 ## 2. 目录结构
 
 ```
 CardArtReplacer/
-├─ CardArtReplacer.csproj        # 编译工程（本地 build 用）
+├─ CardArtReplacer.csproj      编译工程（官方 Godot.NET.Sdk 模板）
+├─ CardArtReplacer.json        mod 清单（必须，随 dll 一起放进 mods 目录）
 ├─ src/
-│  ├─ ModEntry.cs                # 入口：扫描目录 + 应用 Harmony 补丁
-│  ├─ CardArtLibrary.cs          # 扫描 image/cards/**，建立 id→贴图 映射
-│  ├─ CardPortraitPatch.cs       # 核心补丁：把 _portrait 换成你的图并铺满卡面
-│  └─ ReloadCommand.cs           # 可选：控制台热重载命令（默认注释掉）
-└─ image/cards/                  # ★ 你只需要动这里
+│  ├─ Entry.cs                 入口 [ModInitializer]：扫描目录 + Harmony.PatchAll
+│  ├─ CardArtLibrary.cs        扫 image/cards/**，建「卡id→贴图」映射
+│  ├─ CardPortraitPatch.cs     核心补丁：把 _portrait 换成你的图并铺满卡面
+│  └─ ReloadCommand.cs         可选：控制台热重载命令（默认注释）
+└─ image/cards/                ★ 你只需要动这里
    ├─ defect/  regent/  colorless/  curse/
-   └─ colorless/_sample_full_face.png   # 606×852 占位样例（可删）
+   └─ colorless/_sample_full_face.png   606×852 占位样例（可删）
 ```
 
-## 3. 加/换一张卡的图（无需懂编程）
+## 3. 加/换一张卡的图（不用懂编程）
 
-1. 做一张 **606×852 PNG**，整张全出血（含边框+标题底，别把费用/描述文字做进去）。
+1. 做一张 **606×852 PNG**，整张全出血（含边框+标题底；**别**把费用/描述文字做进去）。
 2. 命名为该卡的 **id**（全小写，下划线可省）：`big_bang.png` 或 `bigbang.png` 都行。
 3. 丢进 `image/cards/` 下任意子目录（目录只为你自己整理，程序只认文件名）。
-4. 用 Godot 打开工程让它生成 `.import`（或让游戏在加载时导入），进游戏即可看到。
+4. 重新导出 pck（见第 6 节）进游戏即可。命名细节另见 `image/cards/README.txt`。
 
-> 命名细节见 `image/cards/README.txt`。占位图 `_sample_full_face.png` 四角有描边，
-> 是用来肉眼确认「铺满整张卡面」效果的，验证完可删。
+## 4. 开发环境（官方教程确认）
 
-## 4. 工作原理（对应原 DLL 蓝图）
+- **Godot 4.5.1 Mono**（.NET 版），新建项目渲染器选 **Mobile/移动**（与游戏一致）。
+- **.NET SDK 9**（或更高）。
+- 编辑器：Rider（新手推荐）/ VS Code（装 C# Dev Kit）/ VS 均可。
+- 游戏自带依赖，位于 `<游戏目录>\data_sts2_windows_x86_64\`：
+  - `sts2.dll` —— 游戏核心程序集（命名空间 `MegaCrit.Sts2.Core.*`）
+  - `0Harmony.dll` —— Harmony（打补丁用），**不用装 NuGet**
 
-- 入口 `ModEntry.Initialize()` 扫描 `image/cards/**`，把每个文件名归一化（小写、去下划线）
-  成 key，建立 `key → 贴图路径` 字典。
-- Harmony 补丁 `CardPortraitPatch` 挂在游戏刷新卡面的方法上（逆向为
-  `NCardComponent.UpdateCardDisplay`）。每次卡面刷新后：取该卡 `id` → 查字典 → 找到卡内名为
-  `_portrait` 的节点 → 换贴图并缩放到 606×852 铺满。查不到图就保持原版。
-- 命名映射与原框架完全一致：卡牌 id `big_bang` ↔ 文件 `bigbang.png`（额外允许带下划线写法）。
+## 5. 一个 mod 的三个组成部分
 
-## 5. 编译成 DLL（本地进行）
+放进 `<游戏目录>\mods\CardArtReplacer\` 下：
 
-> ⚠️ 本仓库所在的云端环境**没有 dotnet、也没有游戏程序集**，无法在此编译或运行验证。
-> 下面是本地步骤。首次编译若报「找不到类型/方法」，见第 6 节的 VERIFY 清单。
+| 文件 | 作用 | 本 mod |
+|------|------|--------|
+| `CardArtReplacer.dll` | 代码（换图补丁） | 必须 |
+| `CardArtReplacer.pck` | 素材资源（你的卡图） | 必须 |
+| `CardArtReplacer.json` | 清单（id/版本/依赖…） | 必须 |
 
-前置：
-- .NET SDK 8（与 Godot 4.5 一致）
-- 本地一份游戏安装（用于引用 `GodotSharp.dll` 和游戏核心程序集）
+> 清单里本 mod 已设 `"affects_gameplay": false`（纯装饰，不影响多人内容）。
 
-步骤：
+## 6. 编译 + 打包（本地进行）
+
+> ⚠️ 本仓库所在云端环境**没有 dotnet、也没有游戏程序集**，无法在此编译/验证。
+> 下面是本地步骤。首次编译报「找不到类型/方法」，见第 7 节 VERIFY 清单。
+
+**准备**：把 `CardArtReplacer.csproj` 顶部的 `<Sts2Dir>` 改成你本机安装目录。
+
+**编译 dll**（会自动复制 dll+json 到 `mods\CardArtReplacer\`）：
 ```bash
-# 把工程里游戏路径指向你本机安装目录
-dotnet build CardArtReplacer.csproj -c Release -p:GameDir="D:\Steam\...\SlayTheSpire2"
+dotnet build -c Release
 ```
-产物是 `bin/Release/net8.0/CardArtReplacer.dll`。把 **DLL + `image/` 目录**一起按游戏的
-mod 加载方式放进 mods 目录（参考同机其它可用 mod 的目录形态，或 config-manager 一类的加载器）。
 
-## 6. 需要你核对的 API 点（VERIFY）
+**导出 pck**（把 image/ 资源打包）：回 Godot 编辑器 →「项目→导出」→ 添加一个
+Windows 预设 →「导出 pck/zip」→ 文件名 `CardArtReplacer.pck`，存到
+`mods\CardArtReplacer\`。（一定是 **pck**。）
+> 也可用命令行 `dotnet build -t:ExportPck` 一步导出——取消 `.csproj` 里 `ExportPck`
+> 那段注释并填 `<GodotExe>` 路径即可。Mac 需把 `export_presets.cfg` 里
+> `binary_format/architecture="x86_64"` 改成 `"msil"`。
 
-这些是我**从原 DLL 的字符串逆向出来**的名字，大概率正确，但没有游戏 SDK 无法编译验证。
-若首次 build 报错，按序核对（源码里对应位置都标了 `VERIFY(n)`）：
+**运行验证**：启动游戏，首次问是否开启 mod 选「是」（会自动关闭），再打开一次；
+右下角显示「已加载模组」即成功。
 
-| 编号 | 位置 | 需确认的东西 | 逆向得到的值 |
-|------|------|-------------|-------------|
-| 1 | `ModEntry.cs` | mod 入口标记/机制 | `MegaCrit.Sts2.Core.Modding` + `ModInitializer` |
-| 2 | `CardPortraitPatch.TargetMethod` | 补丁目标类型.方法 | `NCardComponent.UpdateCardDisplay` |
-| 3 | `CardPortraitPatch.ReadCardId` | 从组件取卡牌 id 的路径 | 组件→`Card/_card`(CardModel)→`Id/ModelId` |
-| 4 | `CardPortraitPatch.CoverCardFace` | 立绘节点名与类型/定位 | 节点名 `_portrait`（TextureRect/Sprite2D） |
-| 5 | `ReloadCommand.cs`（可选） | 控制台命令基类 | `AbstractConsoleCmd`（DevConsole） |
+> ⚠️ 前提：你的 Godot 项目里，卡图资源要落在 `res://CardArtReplacer/image/cards/**`
+> （即项目根下有个与 modid 同名的文件夹）。代码写死读这个路径。
 
-补丁用的是运行期反射（`AccessTools.TypeByName/Method`），所以**改名只需改字符串**，
-不必大动结构。
+## 7. 需要你核对的 API 点（VERIFY）
 
-## 7. 与 RTRsMoeifyMod 的关系
+环境相关（SDK/入口/引用/清单/打包）已按**官方教程**坐实。只剩「卡牌内部结构」这块，
+官方环境配置页没讲，是我**逆向自原 RTRsMoeifyMod.dll 字符串**的，大概率对，但没游戏
+SDK 无法编译核对。若首次 build 报错，按序核对（源码里都标了 `VERIFY(n)`）：
 
-同一套换图思路与命名约定，但本 mod 是**从零写的精简子集**：只留卡面替换，
-删掉了边框（`CardCustomBorderPatch`）、远古立绘（`AncientCardImageReplacementPatch`）、
+| 编号 | 位置 | 需确认 | 逆向值 | 怎么确认 |
+|------|------|--------|--------|----------|
+| 2 | `CardPortraitPatch.TargetMethod` | 补丁目标类型.方法 | `NCardComponent.UpdateCardDisplay` | 反编译本地 `sts2.dll`，或看官方「视觉/09 Patch」章节 |
+| 3 | `CardPortraitPatch.ReadCardId` | 取卡牌 id 的路径 | 组件→`Card/_card`→`Id/ModelId` | 同上 |
+| 4 | `CardPortraitPatch.CoverCardFace` | 立绘节点名/类型 | `_portrait`（TextureRect/Sprite2D） | 同上 |
+
+补丁用运行期反射（`AccessTools`），**改名只改字符串**，不必动结构。
+
+> 想让我把这三项也定死？把官方教程的 **「视觉 / 01 卡图&Spine」** 和 **「基础 / 09 Patch」**
+> 两页像这次一样存成 HTML 传上来，或反编译本地 `sts2.dll` 把卡牌类贴给我即可。
+
+## 8. 与 RTRsMoeifyMod 的关系
+
+同一套换图思路与命名约定，本 mod 是**从零写的精简子集**：只留卡面替换，删掉了
+边框（`CardCustomBorderPatch`）、远古立绘（`AncientCardImageReplacementPatch`）、
 鸣谢浮层（`InspectCardCreditsUpdatePatch`）和全部配置。想扩展时可回头参考原框架。
 
-## 8. 免责
+## 9. 免责
 
-源码基于对已编译 DLL 的逆向重建，未在游戏内编译/运行验证。请在本地按第 5、6 节核对后使用。
-卡图版权归各自作者，请勿未经授权二次分发他人作品。
+卡牌内部 API 三点基于对已编译 DLL 的逆向，未在游戏内编译/运行验证，请按第 7 节核对。
+卡图版权归各自作者，勿未经授权二次分发他人作品。

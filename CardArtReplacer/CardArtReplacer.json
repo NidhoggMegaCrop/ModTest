@@ -1,0 +1,12 @@
+{
+  "id": "CardArtReplacer",
+  "name": "Card Art Replacer",
+  "author": "你的名字",
+  "description": "只替换原版卡牌立绘（全图异画），不含边框/远古/鸣谢。",
+  "version": "0.1.0",
+  "min_game_version": "0.107.1",
+  "has_pck": true,
+  "has_dll": true,
+  "dependencies": [],
+  "affects_gameplay": false
+}
