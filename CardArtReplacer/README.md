@@ -24,7 +24,7 @@ CardArtReplacer/
 ├─ src/
 │  ├─ Entry.cs                 入口 [ModInitializer]：扫描目录 + Harmony.PatchAll
 │  ├─ CardArtLibrary.cs        扫 image/cards/**，建「卡id→贴图」映射
-│  ├─ CardPortraitPatch.cs     核心补丁：把 _portrait 换成你的图并铺满卡面
+│  ├─ CardPortraitPatch.cs     核心补丁：patch CardModel.PortraitPath 返回你的图路径
 │  └─ ReloadCommand.cs         可选：控制台热重载命令（默认注释）
 └─ image/cards/                ★ 你只需要动这里
    ├─ defect/  regent/  colorless/  curse/
@@ -34,9 +34,14 @@ CardArtReplacer/
 ## 3. 加/换一张卡的图（不用懂编程）
 
 1. 做一张 **606×852 PNG**，整张全出血（含边框+标题底；**别**把费用/描述文字做进去）。
-2. 命名为该卡的 **id**（全小写，下划线可省）：`big_bang.png` 或 `bigbang.png` 都行。
+2. 命名为该卡的 **类名**（大小写、下划线都不敏感）：`BigBang` 这张卡命名成
+   `bigbang.png`、`BigBang.png` 或 `big_bang.png` 都能匹配。
 3. 丢进 `image/cards/` 下任意子目录（目录只为你自己整理，程序只认文件名）。
 4. 重新导出 pck（见第 6 节）进游戏即可。命名细节另见 `image/cards/README.txt`。
+
+> 卡牌用**类名**标识（官方做法：`__instance.GetType().Name`），不是 snake_case 的 id。
+> 原版卡类名基本就是卡名去空格的 PascalCase（`All For One` → `AllForOne`）。
+> 拿不准就反编译本地 `sts2.dll`，或用教程侧栏的「ID 生成器」查。
 
 ## 4. 开发环境（官方教程确认）
 
@@ -84,22 +89,28 @@ Windows 预设 →「导出 pck/zip」→ 文件名 `CardArtReplacer.pck`，存�
 > ⚠️ 前提：你的 Godot 项目里，卡图资源要落在 `res://CardArtReplacer/image/cards/**`
 > （即项目根下有个与 modid 同名的文件夹）。代码写死读这个路径。
 
-## 7. 需要你核对的 API 点（VERIFY）
+## 7. 补丁做法（官方教程「卡图&Spine」）
 
-环境相关（SDK/入口/引用/清单/打包）已按**官方教程**坐实。只剩「卡牌内部结构」这块，
-官方环境配置页没讲，是我**逆向自原 RTRsMoeifyMod.dll 字符串**的，大概率对，但没游戏
-SDK 无法编译核对。若首次 build 报错，按序核对（源码里都标了 `VERIFY(n)`）：
+替换卡图就是 patch `CardModel.PortraitPath` 这个属性的 **getter**，在 `Postfix` 里按卡牌
+类名把返回的资源路径改成你的图：
 
-| 编号 | 位置 | 需确认 | 逆向值 | 怎么确认 |
-|------|------|--------|--------|----------|
-| 2 | `CardPortraitPatch.TargetMethod` | 补丁目标类型.方法 | `NCardComponent.UpdateCardDisplay` | 反编译本地 `sts2.dll`，或看官方「视觉/09 Patch」章节 |
-| 3 | `CardPortraitPatch.ReadCardId` | 取卡牌 id 的路径 | 组件→`Card/_card`→`Id/ModelId` | 同上 |
-| 4 | `CardPortraitPatch.CoverCardFace` | 立绘节点名/类型 | `_portrait`（TextureRect/Sprite2D） | 同上 |
+```csharp
+[HarmonyPatch(typeof(CardModel), nameof(CardModel.PortraitPath), MethodType.Getter)]
+static void Postfix(CardModel __instance, ref string __result)
+{
+    var path = CardArtLibrary.ResolvePath(__instance?.GetType().Name);
+    if (path != null && ResourceLoader.Exists(path)) __result = path;
+}
+```
 
-补丁用运行期反射（`AccessTools`），**改名只改字符串**，不必动结构。
+本工程的 `CardPortraitPatch.cs` 用**反射**版实现同样的逻辑（`AccessTools.PropertyGetter`），
+好处是编译期不依赖 `CardModel` 的具体命名空间，**开箱即能 build**。
 
-> 想让我把这三项也定死？把官方教程的 **「视觉 / 01 卡图&Spine」** 和 **「基础 / 09 Patch」**
-> 两页像这次一样存成 HTML 传上来，或反编译本地 `sts2.dll` 把卡牌类贴给我即可。
+唯一可选的一步：若你想换成上面的**强类型写法**（更简洁），需要在文件顶部
+`using` 上 `CardModel` 所在的命名空间（反编译 `sts2.dll` 一看便知）。不换就保持反射版即可，
+功能完全一样。
+
+> 说明：官方明确此法「只能替换原版卡图」——正好覆盖你要的原版角色/无色/诅咒卡。
 
 ## 8. 与 RTRsMoeifyMod 的关系
 
@@ -109,5 +120,5 @@ SDK 无法编译核对。若首次 build 报错，按序核对（源码里都标
 
 ## 9. 免责
 
-卡牌内部 API 三点基于对已编译 DLL 的逆向，未在游戏内编译/运行验证，请按第 7 节核对。
-卡图版权归各自作者，勿未经授权二次分发他人作品。
+补丁做法来自官方教程，但本云端环境无法编译/运行验证；`CardModel` 命名空间（仅强类型写法需要）
+请以本地 `sts2.dll` 为准。卡图版权归各自作者，勿未经授权二次分发他人作品。

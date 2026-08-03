@@ -5,20 +5,20 @@ using Godot;
 namespace CardArtReplacer;
 
 /// <summary>
-/// 扫描 image/cards/** 下所有图片，建立 “归一化卡牌id -> 贴图” 映射并缓存。
+/// 扫描 image/cards/** 下所有图片，建立 “归一化卡牌类名 -> 资源路径” 映射。
 /// 子目录（defect / regent / colorless / curse / 任意名）仅供你自己整理，
 /// 解析时与目录无关，只看文件名。
+/// 补丁按卡牌**类名**（如 BigBang）来查，文件名按同样规则归一化后匹配。
 /// </summary>
 public static class CardArtLibrary
 {
     private static readonly Dictionary<string, string> _paths = new();       // key -> res://...
-    private static readonly Dictionary<string, Texture2D?> _cache = new();    // key -> texture
 
     public static int Count => _paths.Count;
 
     /// <summary>
     /// 归一化：全小写、去掉下划线/连字符/空格。
-    /// 这样 "big_bang.png" 与 "bigbang.png" 都能匹配到卡牌 id "big_bang"。
+    /// 这样类名 "BigBang" 与文件 "bigbang.png"、"big_bang.png" 都能对上。
     /// </summary>
     public static string Normalize(string? id)
     {
@@ -32,11 +32,10 @@ public static class CardArtLibrary
         return sb.ToString();
     }
 
-    /// <summary>重新扫描目录并清空缓存（改完图后调用即可热更新）。</summary>
+    /// <summary>重新扫描目录（改完图后调用即可热更新映射）。</summary>
     public static void Rescan()
     {
         _paths.Clear();
-        _cache.Clear();
         ScanDir(Entry.CardsRoot);
         Entry.LogInfo($"scanned card art dir, {_paths.Count} files");
     }
@@ -71,25 +70,11 @@ public static class CardArtLibrary
         da.ListDirEnd();
     }
 
-    /// <summary>按卡牌 id 取贴图；没有对应图片时返回 null（保留原版画）。</summary>
-    public static Texture2D? Resolve(string? cardId)
+    /// <summary>按卡牌类名取 res:// 图片路径；没有对应图片时返回 null（保留原版画）。</summary>
+    public static string? ResolvePath(string? cardClassName)
     {
-        string key = Normalize(cardId);
+        string key = Normalize(cardClassName);
         if (key.Length == 0) return null;
-        if (_cache.TryGetValue(key, out var cached)) return cached;
-        if (!_paths.TryGetValue(key, out var path)) return null;
-
-        // 首选：走 Godot 导入管线（PCK 内的 .ctex，无损清晰）。
-        Texture2D? tex = ResourceLoader.Exists(path) ? GD.Load<Texture2D>(path) : null;
-
-        // 回退：编辑器/未导入场景下直接从原始图片读取。
-        if (tex == null)
-        {
-            var img = Image.LoadFromFile(path);
-            if (img != null) tex = ImageTexture.CreateFromImage(img);
-        }
-
-        _cache[key] = tex;
-        return tex;
+        return _paths.TryGetValue(key, out var path) ? path : null;
     }
 }
