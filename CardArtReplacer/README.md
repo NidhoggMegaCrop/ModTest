@@ -82,8 +82,11 @@ CardArtReplacer/
 
 **编译 dll**（会自动复制 dll+json 到 `mods\CardArtReplacer\`）：
 ```bash
-dotnet build -c Release
+dotnet build
 ```
+> ⚠️ 不要加 `-c Release`——Godot 生成的解决方案没有 `Release` 配置（只有
+> `Debug` / `ExportDebug` / `ExportRelease`），加了会报 MSB4126。默认 `dotnet build`
+> 走 `Debug`，做 mod 足够；想要 release 用 `dotnet build -c ExportRelease`。
 
 **导出 pck**（把 image/ 资源打包）：回 Godot 编辑器 →「项目→导出」→ 添加一个
 Windows 预设 →「导出 pck/zip」→ 文件名 `CardArtReplacer.pck`，存到
