@@ -26,6 +26,10 @@ public class Entry
     // 图配齐后可改成 false 关掉日志。
     public static bool DiscoverCardNames = true;
 
+    // 调试用：把第一张卡的视觉节点树 dump 到日志一次，用来搞清楚全图异画要动哪些节点。
+    // 搞清结构后可设为 false。
+    public static bool DumpCardNodes = true;
+
     public static void Init()
     {
         LogInfo("init begin");
@@ -35,6 +39,10 @@ public class Entry
 
         // 让 .tscn 能加载本程序集内的自定义脚本（官方模板通用写法；本 mod 无自定义脚本也无害）。
         ScriptManagerBridge.LookupScriptsInAssembly(typeof(Entry).Assembly);
+
+        // 调试：安装卡牌节点树 dump（安全：找不到目标只记日志，不影响核心换图）。
+        try { CardNodeDumpPatch.TryInstall(harmony); }
+        catch (System.Exception e) { LogInfo($"dump install failed: {e.Message}"); }
 
         LogInfo($"patched. card art resolves on demand from res://{ModId}/image/cards/**.");
     }
