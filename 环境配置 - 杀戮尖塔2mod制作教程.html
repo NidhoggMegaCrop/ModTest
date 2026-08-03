@@ -1,0 +1,2669 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)https://tutorials.sts2modding.com/docs/01-env-setup/ -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link id="giscus-css" rel="stylesheet" href="./环境配置 - 杀戮尖塔2mod制作教程_files/default.css">
+		
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		
+			<meta name="description" content="杀戮尖塔2（Slay the Spire 2）中文模组制作教程。">
+			<meta property="og:description" content="杀戮尖塔2（Slay the Spire 2）中文模组制作教程。">
+		
+		
+			<meta name="keywords" content="杀戮尖塔2,Slay the Spire 2,STS2,mod,模组,教程,RitsuLib,BaseLib,Harmony,Godot">
+		
+		<meta property="og:locale" content="zh_CN">
+		<meta property="og:site_name" content="杀戮尖塔2mod制作教程">
+		
+			<meta property="og:title" content="环境配置">
+		
+		
+<link rel="stylesheet" href="./环境配置 - 杀戮尖塔2mod制作教程_files/layout.css">
+
+		
+		<title> 环境配置 -  杀戮尖塔2mod制作教程</title>
+		<!-- <link rel="stylesheet" href="https://unpkg.com/mdui@1.0.2/dist/css/mdui.min.css" /> -->
+		<!-- <script src="https://unpkg.com/mdui@1.0.2/dist/js/mdui.min.js"></script> -->
+		
+<link rel="stylesheet" href="./环境配置 - 杀戮尖塔2mod制作教程_files/mdui.min.css">
+
+		
+<script src="./环境配置 - 杀戮尖塔2mod制作教程_files/mdui.min.js.下载"></script>
+
+		<!-- lazyload -->
+		
+<script src="./环境配置 - 杀戮尖塔2mod制作教程_files/lazysizes.js.下载"></script>
+
+		<!-- smooth-scrolling -->
+		
+<script src="./环境配置 - 杀戮尖塔2mod制作教程_files/smooth-scrolling.js.下载"></script>
+
+		<!-- highlight -->
+		
+<link rel="stylesheet" href="./环境配置 - 杀戮尖塔2mod制作教程_files/atom-one-dark.min.css">
+
+		
+<script src="./环境配置 - 杀戮尖塔2mod制作教程_files/highlight.min.js.下载"></script>
+
+		<!-- 预置 kiraicon -->
+		
+<link rel="stylesheet" href="./环境配置 - 杀戮尖塔2mod制作教程_files/iconfont.css">
+
+		
+		<link rel="shortcut icon" href="https://tutorials.sts2modding.com/icon.ico" type="image/x-icon">
+		
+<link rel="stylesheet" href="./环境配置 - 杀戮尖塔2mod制作教程_files/APlayer.min.css">
+
+		
+			
+				
+<link rel="stylesheet" href="./环境配置 - 杀戮尖塔2mod制作教程_files/docs-nav.css">
+
+			
+		
+		
+			
+				
+<script src="./环境配置 - 杀戮尖塔2mod制作教程_files/docs-anchors.js.下载"></script>
+
+			
+				
+<script src="./环境配置 - 杀戮尖塔2mod制作教程_files/docs-panels.js.下载"></script>
+
+			
+				
+<script src="./环境配置 - 杀戮尖塔2mod制作教程_files/community-qq.js.下载"></script>
+
+			
+				
+<script src="./环境配置 - 杀戮尖塔2mod制作教程_files/lang-switch.js.下载"></script>
+
+			
+		
+		
+<script src="./环境配置 - 杀戮尖塔2mod制作教程_files/APlayer.min.js.下载"></script>
+<script src="./环境配置 - 杀戮尖塔2mod制作教程_files/Meting.min.js.下载"></script>
+
+	<meta name="generator" content="Hexo 7.3.0"></head>
+
+	<body class="" data-new-gr-c-s-check-loaded="14.1315.0" data-gr-ext-installed="">
+		<div class="kira-background" style="background-image: url(&#39;/images/qq20260307.png&#39;)"></div>
+		<div class="kira-header">
+    <a class="kira-drawer-button mdui-ripple" title="导航栏" onclick="document.querySelector(&#39;.kira-sidebar-modal&#39;).classList.add(&#39;show&#39;);document.querySelector(&#39;.kira-sidebar#sidebar&#39;).classList.add(&#39;show&#39;);">
+        <i class="kirafont icon-menu"></i>
+    </a>
+    <a class="kira-header-home" href="https://tutorials.sts2modding.com/index.html" title="杀戮尖塔2mod制作教程">
+        <img src="https://tutorials.sts2modding.com/docs/01-env-setup/" alt="Reme">
+    </a>
+    <a class="kira-header-link mdui-ripple" href="https://github.com/GlitchedReme/SlayTheSpire2ModdingTutorials" target="_blank" rel="noopener noreferrer" title="GitHub 仓库">
+        <i class="kirafont icon-github"></i>
+    </a>
+</div>
+		<div class="kira-body">
+			<div class="kira-sidebar" id="sidebar">
+	<div class="kira-avatar mdui-ripple">
+		<a href="https://tutorials.sts2modding.com/docs/01-env-setup/" title="Reme">
+			<img src="https://tutorials.sts2modding.com/docs/01-env-setup/" alt="Reme">
+		</a>
+	</div>
+	<div class="kira-count">
+		<div><span>文章</span>
+			162
+		</div>
+		<div><span>标签</span>
+			0
+		</div>
+		<div><span>分类</span>
+			1
+		</div>
+	</div>
+	<button type="button" class="kira-panel-reopen" id="kira-sidebar-reopen" hidden="" title="展开导航" aria-label="展开导航">
+		<i class="kirafont icon-caret-up kira-reopen-icon" aria-hidden="true"></i>
+	</button>
+	<div class="kira-sidebar-inner">
+		<div class="kira-sidebar-top">
+			<div class="kira-search-panel">
+				<div class="kira-search-input-wrap">
+					<i class="kirafont icon-search"></i>
+					<input id="kira-search-input" type="search" placeholder="搜索全部文章内容..." autocomplete="off">
+				</div>
+				<div id="kira-search-results" class="kira-search-results" hidden=""></div>
+			</div>
+			<button type="button" class="kira-collapse-toggle" id="kira-sidebar-collapse" aria-expanded="true" aria-controls="kira-sidebar-scroll" title="折叠导航" aria-label="折叠导航">
+				<i class="kirafont icon-caret-up kira-collapse-icon" aria-hidden="true"></i>
+			</button>
+		</div>
+		<div class="kira-sidebar-scroll kira-scrollbar" id="kira-sidebar-scroll" style="">
+			<div class="kira-list kira-docs-tree kira-explorer">
+				
+					<ul class="kira-explorer-list kira-explorer-root">
+						
+							<li class="kira-explorer-node is-file is-open " data-level="0" data-node-id="tree-node-0-1" style="--node-order:1;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/index.html" title="首页">
+														<i class="kirafont icon-home"></i>
+														<span class="kira-explorer-text">
+															首页
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-folder is-open " data-level="0" data-node-id="tree-node-0-2" style="--node-order:2;">
+								<div class="kira-explorer-row">
+									
+										<button class="kira-explorer-toggle" type="button" aria-expanded="true" aria-controls="tree-node-0-2">
+											<span class="kira-explorer-caret"></span>
+										</button>
+										
+
+												
+														<span class="kira-explorer-link is-label" title="基础">
+															<i class="kirafont icon-book"></i>
+															<span class="kira-explorer-text">
+																基础
+															</span>
+														
+								</span></div>
+
+								
+									<div class="kira-explorer-children" id="tree-node-0-2" style="--children-height: 300px;">
+										<ul class="kira-explorer-list">
+											
+							<li class="kira-explorer-node is-file is-open is-active" data-level="1" data-node-id="tree-node-1-3" style="--node-order: 3; --child-index: 0;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/01-env-setup/" title="01 环境配置">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															01 环境配置
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="1" data-node-id="tree-node-1-4" style="--node-order: 4; --child-index: 1;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/02-install-view-source-and-patch/" title="02 常见问题">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															02 常见问题
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="1" data-node-id="tree-node-1-5" style="--node-order: 5; --child-index: 2;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/03-choose-base-library/" title="03 选择基础库">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															03 选择基础库
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="1" data-node-id="tree-node-1-6" style="--node-order: 6; --child-index: 3;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/05-variable-and-description/" title="04 变量与描述">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															04 变量与描述
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="1" data-node-id="tree-node-1-7" style="--node-order: 7; --child-index: 4;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/08-ancient-dialogue/" title="05 先古对话">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															05 先古对话
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="1" data-node-id="tree-node-1-8" style="--node-order: 8; --child-index: 5;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/07-quick-debug-and-hot-reload/" title="06 快速调试&amp;热重载">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															06 快速调试&amp;热重载
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="1" data-node-id="tree-node-1-9" style="--node-order: 9; --child-index: 6;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/08-launch-arguments/" title="07 启动项参数">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															07 启动项参数
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="1" data-node-id="tree-node-1-10" style="--node-order: 10; --child-index: 7;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/09-console-commands/" title="08 控制台指令">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															08 控制台指令
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="1" data-node-id="tree-node-1-11" style="--node-order: 11; --child-index: 8;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/10-patch/" title="09 Patch">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															09 Patch
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="1" data-node-id="tree-node-1-12" style="--node-order: 12; --child-index: 9;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/11-upload-workshop/" title="10 上传工坊">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															10 上传工坊
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+										</ul>
+									</div>
+									
+							</li>
+							
+							<li class="kira-explorer-node is-folder is-open " data-level="0" data-node-id="tree-node-0-13" style="--node-order:13;">
+								<div class="kira-explorer-row">
+									
+										<button class="kira-explorer-toggle" type="button" aria-expanded="true" aria-controls="tree-node-0-13">
+											<span class="kira-explorer-caret"></span>
+										</button>
+										
+
+												
+														<span class="kira-explorer-link is-label" title="RitsuLib">
+															<i class="kirafont icon-book"></i>
+															<span class="kira-explorer-text">
+																RitsuLib
+															</span>
+														
+								</span></div>
+
+								
+									<div class="kira-explorer-children" id="tree-node-0-13" style="--children-height: 660px;">
+										<ul class="kira-explorer-list">
+											
+							<li class="kira-explorer-node is-file is-open " data-level="1" data-node-id="tree-node-1-14" style="--node-order: 14; --child-index: 0;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/04-ritsulib/" title="00 总览">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															00 总览
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-folder is-open " data-level="1" data-node-id="tree-node-1-15" style="--node-order: 15; --child-index: 1;">
+								<div class="kira-explorer-row">
+									
+										<button class="kira-explorer-toggle" type="button" aria-expanded="true" aria-controls="tree-node-1-15">
+											<span class="kira-explorer-caret"></span>
+										</button>
+										
+
+												
+														<span class="kira-explorer-link is-label" title="01 添加基础内容">
+															<i class="kirafont icon-folder"></i>
+															<span class="kira-explorer-text">
+																01 添加基础内容
+															</span>
+														
+								</span></div>
+
+								
+									<div class="kira-explorer-children" id="tree-node-1-15" style="--children-height: 540px;">
+										<ul class="kira-explorer-list">
+											
+							<li class="kira-explorer-node is-file is-open " data-level="2" data-node-id="tree-node-2-16" style="--node-order: 16; --child-index: 0;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/04-ritsulib/04-01-add-card/" title="01 添加卡牌">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															01 添加卡牌
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="2" data-node-id="tree-node-2-17" style="--node-order: 17; --child-index: 1;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/04-ritsulib/04-02-custom-config/" title="02 自定义配置">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															02 自定义配置
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="2" data-node-id="tree-node-2-18" style="--node-order: 18; --child-index: 2;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/04-ritsulib/04-03-add-relic/" title="03 添加新遗物">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															03 添加新遗物
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="2" data-node-id="tree-node-2-19" style="--node-order: 19; --child-index: 3;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/04-ritsulib/04-04-card-properties/" title="04 添加卡牌属性">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															04 添加卡牌属性
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="2" data-node-id="tree-node-2-20" style="--node-order: 20; --child-index: 4;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/04-ritsulib/04-05-add-power/" title="05 添加新能力">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															05 添加新能力
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="2" data-node-id="tree-node-2-21" style="--node-order: 21; --child-index: 5;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/04-ritsulib/04-06-add-potion/" title="06 添加新药水">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															06 添加新药水
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="2" data-node-id="tree-node-2-22" style="--node-order: 22; --child-index: 6;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/04-ritsulib/04-07-add-ancient/" title="07 添加先古之民">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															07 添加先古之民
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="2" data-node-id="tree-node-2-23" style="--node-order: 23; --child-index: 7;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/04-ritsulib/04-08-add-orb/" title="08 添加充能球">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															08 添加充能球
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="2" data-node-id="tree-node-2-24" style="--node-order: 24; --child-index: 8;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/04-ritsulib/04-09-add-timeline/" title="09 添加时间线">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															09 添加时间线
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="2" data-node-id="tree-node-2-25" style="--node-order: 25; --child-index: 9;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/04-ritsulib/04-10-add-audio/" title="10 添加音频">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															10 添加音频
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="2" data-node-id="tree-node-2-26" style="--node-order: 26; --child-index: 10;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/04-ritsulib/04-11-add-monster/" title="11 添加新怪物">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															11 添加新怪物
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="2" data-node-id="tree-node-2-27" style="--node-order: 27; --child-index: 11;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/04-ritsulib/04-12-add-event/" title="12 添加新事件">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															12 添加新事件
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="2" data-node-id="tree-node-2-28" style="--node-order: 28; --child-index: 12;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/04-ritsulib/04-13-add-enchantment/" title="13 添加新附魔">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															13 添加新附魔
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="2" data-node-id="tree-node-2-29" style="--node-order: 29; --child-index: 13;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/04-ritsulib/04-14-add-new-character/" title="14 添加新人物">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															14 添加新人物
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="2" data-node-id="tree-node-2-30" style="--node-order: 30; --child-index: 14;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/04-ritsulib/04-15-add-singleton/" title="15 添加单例">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															15 添加单例
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="2" data-node-id="tree-node-2-31" style="--node-order: 31; --child-index: 15;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/04-ritsulib/04-15-1-add-card-pool/" title="16 添加卡池">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															16 添加卡池
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="2" data-node-id="tree-node-2-32" style="--node-order: 32; --child-index: 16;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/04-ritsulib/04-15-2-character-animation/" title="17 角色动画">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															17 角色动画
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="2" data-node-id="tree-node-2-33" style="--node-order: 33; --child-index: 17;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/04-ritsulib/04-18-add-capability/" title="18 添加组件">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															18 添加组件
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+										</ul>
+									</div>
+									
+							</li>
+							
+							<li class="kira-explorer-node is-folder  " data-level="1" data-node-id="tree-node-1-34" style="--node-order: 34; --child-index: 2;">
+								<div class="kira-explorer-row">
+									
+										<button class="kira-explorer-toggle" type="button" aria-expanded="false" aria-controls="tree-node-1-34">
+											<span class="kira-explorer-caret"></span>
+										</button>
+										
+
+												
+														<span class="kira-explorer-link is-label" title="02 玩法基底">
+															<i class="kirafont icon-folder"></i>
+															<span class="kira-explorer-text">
+																02 玩法基底
+															</span>
+														
+								</span></div>
+
+								
+									<div class="kira-explorer-children" id="tree-node-1-34" style="--children-height: 390px;">
+										<ul class="kira-explorer-list">
+											
+							<li class="kira-explorer-node is-file is-open " data-level="2" data-node-id="tree-node-2-35" style="--node-order: 35; --child-index: 0;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/04-ritsulib/04-16-health-bar-overlay/" title="01 血条覆盖">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															01 血条覆盖
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="2" data-node-id="tree-node-2-36" style="--node-order: 36; --child-index: 1;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/04-ritsulib/04-18-max-hand-size/" title="02 手牌上限">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															02 手牌上限
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="2" data-node-id="tree-node-2-37" style="--node-order: 37; --child-index: 2;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/04-ritsulib/04-19-hand-outline/" title="03 手牌泛光">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															03 手牌泛光
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="2" data-node-id="tree-node-2-38" style="--node-order: 38; --child-index: 3;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/04-ritsulib/04-20-custom-card-pile/" title="04 自定义卡牌堆">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															04 自定义卡牌堆
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="2" data-node-id="tree-node-2-39" style="--node-order: 39; --child-index: 4;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/04-ritsulib/04-21-top-bar-button/" title="05 顶栏按钮">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															05 顶栏按钮
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="2" data-node-id="tree-node-2-40" style="--node-order: 40; --child-index: 5;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/04-ritsulib/04-22-notification/" title="06 通知提示">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															06 通知提示
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="2" data-node-id="tree-node-2-41" style="--node-order: 41; --child-index: 6;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/04-ritsulib/04-22-1-extra-badge/" title="07 额外角标">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															07 额外角标
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="2" data-node-id="tree-node-2-42" style="--node-order: 42; --child-index: 7;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/04-ritsulib/04-22-2-common-tools/" title="08 常用工具">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															08 常用工具
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="2" data-node-id="tree-node-2-43" style="--node-order: 43; --child-index: 8;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/04-ritsulib/04-22-3-in-run-data/" title="09 局内数据">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															09 局内数据
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="2" data-node-id="tree-node-2-44" style="--node-order: 44; --child-index: 9;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/04-ritsulib/04-22-4-custom-reward/" title="10 自定义奖励">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															10 自定义奖励
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="2" data-node-id="tree-node-2-45" style="--node-order: 45; --child-index: 10;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/04-ritsulib/04-22-5-custom-targeting/" title="11 自定义目标">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															11 自定义目标
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="2" data-node-id="tree-node-2-46" style="--node-order: 46; --child-index: 11;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/04-ritsulib/04-22-6-right-click/" title="12 右键交互">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															12 右键交互
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="2" data-node-id="tree-node-2-47" style="--node-order: 47; --child-index: 12;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/04-ritsulib/04-22-7-secondary-resources/" title="13 次要资源">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															13 次要资源
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+										</ul>
+									</div>
+									
+							</li>
+							
+							<li class="kira-explorer-node is-folder  " data-level="1" data-node-id="tree-node-1-48" style="--node-order: 48; --child-index: 3;">
+								<div class="kira-explorer-row">
+									
+										<button class="kira-explorer-toggle" type="button" aria-expanded="false" aria-controls="tree-node-1-48">
+											<span class="kira-explorer-caret"></span>
+										</button>
+										
+
+												
+														<span class="kira-explorer-link is-label" title="03 模组工具">
+															<i class="kirafont icon-folder"></i>
+															<span class="kira-explorer-text">
+																03 模组工具
+															</span>
+														
+								</span></div>
+
+								
+									<div class="kira-explorer-children" id="tree-node-1-48" style="--children-height: 270px;">
+										<ul class="kira-explorer-list">
+											
+							<li class="kira-explorer-node is-file is-open " data-level="2" data-node-id="tree-node-2-49" style="--node-order: 49; --child-index: 0;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/04-ritsulib/04-17-data-save/" title="01 数据保存">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															01 数据保存
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="2" data-node-id="tree-node-2-50" style="--node-order: 50; --child-index: 1;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/04-ritsulib/04-23-lifecycle-events/" title="02 生命周期事件">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															02 生命周期事件
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="2" data-node-id="tree-node-2-51" style="--node-order: 51; --child-index: 2;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/04-ritsulib/04-24-patch-system/" title="03 补丁系统">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															03 补丁系统
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="2" data-node-id="tree-node-2-52" style="--node-order: 52; --child-index: 3;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/04-ritsulib/04-25-update-checker/" title="04 更新检查">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															04 更新检查
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="2" data-node-id="tree-node-2-53" style="--node-order: 53; --child-index: 4;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/04-ritsulib/04-26-runtime-hotkey/" title="05 运行时热键">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															05 运行时热键
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="2" data-node-id="tree-node-2-54" style="--node-order: 54; --child-index: 5;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/04-ritsulib/04-27-content-registry/" title="06 内容注册">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															06 内容注册
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="2" data-node-id="tree-node-2-55" style="--node-order: 55; --child-index: 6;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/04-ritsulib/04-28-node-attachment/" title="07 节点附加">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															07 节点附加
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="2" data-node-id="tree-node-2-56" style="--node-order: 56; --child-index: 7;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/04-ritsulib/04-29-telemetry/" title="09 数据遥测">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															09 数据遥测
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="2" data-node-id="tree-node-2-57" style="--node-order: 57; --child-index: 8;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/04-ritsulib/04-30-mod-integration/" title="10 模组联动">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															10 模组联动
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+										</ul>
+									</div>
+									
+							</li>
+							
+										</ul>
+									</div>
+									
+							</li>
+							
+							<li class="kira-explorer-node is-folder  " data-level="0" data-node-id="tree-node-0-58" style="--node-order:58;">
+								<div class="kira-explorer-row">
+									
+										<button class="kira-explorer-toggle" type="button" aria-expanded="false" aria-controls="tree-node-0-58">
+											<span class="kira-explorer-caret"></span>
+										</button>
+										
+
+												
+														<span class="kira-explorer-link is-label" title="BaseLib">
+															<i class="kirafont icon-book"></i>
+															<span class="kira-explorer-text">
+																BaseLib
+															</span>
+														
+								</span></div>
+
+								
+									<div class="kira-explorer-children" id="tree-node-0-58" style="--children-height: 510px;">
+										<ul class="kira-explorer-list">
+											
+							<li class="kira-explorer-node is-file is-open " data-level="1" data-node-id="tree-node-1-59" style="--node-order: 59; --child-index: 0;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/03-baselib/" title="00 总览">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															00 总览
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="1" data-node-id="tree-node-1-60" style="--node-order: 60; --child-index: 1;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/03-baselib/03-01-add-card/" title="01 添加卡牌">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															01 添加卡牌
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="1" data-node-id="tree-node-1-61" style="--node-order: 61; --child-index: 2;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/03-baselib/03-02-mod-config/" title="02 自定义模组配置">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															02 自定义模组配置
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="1" data-node-id="tree-node-1-62" style="--node-order: 62; --child-index: 3;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/03-baselib/03-03-add-relic/" title="03 添加新遗物">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															03 添加新遗物
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="1" data-node-id="tree-node-1-63" style="--node-order: 63; --child-index: 4;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/03-baselib/03-04-card-properties/" title="04 添加卡牌属性">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															04 添加卡牌属性
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="1" data-node-id="tree-node-1-64" style="--node-order: 64; --child-index: 5;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/03-baselib/03-05-add-power/" title="05 添加新能力">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															05 添加新能力
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="1" data-node-id="tree-node-1-65" style="--node-order: 65; --child-index: 6;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/03-baselib/03-06-add-potion/" title="06 添加新药水">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															06 添加新药水
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="1" data-node-id="tree-node-1-66" style="--node-order: 66; --child-index: 7;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/03-baselib/03-07-add-ancient/" title="07 添加先古之民">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															07 添加先古之民
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="1" data-node-id="tree-node-1-67" style="--node-order: 67; --child-index: 8;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/03-baselib/03-08-add-orb/" title="08 添加充能球">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															08 添加充能球
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="1" data-node-id="tree-node-1-68" style="--node-order: 68; --child-index: 9;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/03-baselib/03-09-run-save/" title="09 局内保存">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															09 局内保存
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="1" data-node-id="tree-node-1-69" style="--node-order: 69; --child-index: 10;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/03-baselib/03-10-mod-integration/" title="10 mod联动">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															10 mod联动
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="1" data-node-id="tree-node-1-70" style="--node-order: 70; --child-index: 11;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/03-baselib/03-11-add-monster/" title="11 添加新怪物">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															11 添加新怪物
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="1" data-node-id="tree-node-1-71" style="--node-order: 71; --child-index: 12;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/03-baselib/03-12-add-event/" title="12 添加新事件">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															12 添加新事件
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="1" data-node-id="tree-node-1-72" style="--node-order: 72; --child-index: 13;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/03-baselib/03-13-add-enchantment/" title="13 添加新附魔">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															13 添加新附魔
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="1" data-node-id="tree-node-1-73" style="--node-order: 73; --child-index: 14;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/04-add-new-character/" title="14 添加新人物">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															14 添加新人物
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="1" data-node-id="tree-node-1-74" style="--node-order: 74; --child-index: 15;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/03-baselib/03-15-add-singleton/" title="15 添加单例">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															15 添加单例
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="1" data-node-id="tree-node-1-75" style="--node-order: 75; --child-index: 16;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/03-baselib/03-16-max-hand-size/" title="16 手牌上限">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															16 手牌上限
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+										</ul>
+									</div>
+									
+							</li>
+							
+							<li class="kira-explorer-node is-folder is-open " data-level="0" data-node-id="tree-node-0-76" style="--node-order:76;">
+								<div class="kira-explorer-row">
+									
+										<button class="kira-explorer-toggle" type="button" aria-expanded="true" aria-controls="tree-node-0-76">
+											<span class="kira-explorer-caret"></span>
+										</button>
+										
+
+												
+														<span class="kira-explorer-link is-label" title="迁移">
+															<i class="kirafont icon-book"></i>
+															<span class="kira-explorer-text">
+																迁移
+															</span>
+														
+								</span></div>
+
+								
+									<div class="kira-explorer-children" id="tree-node-0-76" style="--children-height: 60px;">
+										<ul class="kira-explorer-list">
+											
+							<li class="kira-explorer-node is-file is-open " data-level="1" data-node-id="tree-node-1-77" style="--node-order: 77; --child-index: 0;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/07-migration-99-100/" title="01 测试版 至 正式版">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															01 测试版 至 正式版
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="1" data-node-id="tree-node-1-78" style="--node-order: 78; --child-index: 1;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/08-migration-baselib-to-ritsulib/" title="02 BaseLib 至 RitsuLib">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															02 BaseLib 至 RitsuLib
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+										</ul>
+									</div>
+									
+							</li>
+							
+							<li class="kira-explorer-node is-folder  " data-level="0" data-node-id="tree-node-0-79" style="--node-order:79;">
+								<div class="kira-explorer-row">
+									
+										<button class="kira-explorer-toggle" type="button" aria-expanded="false" aria-controls="tree-node-0-79">
+											<span class="kira-explorer-caret"></span>
+										</button>
+										
+
+												
+														<span class="kira-explorer-link is-label" title="视觉">
+															<i class="kirafont icon-book"></i>
+															<span class="kira-explorer-text">
+																视觉
+															</span>
+														
+								</span></div>
+
+								
+									<div class="kira-explorer-children" id="tree-node-0-79" style="--children-height: 90px;">
+										<ul class="kira-explorer-list">
+											
+							<li class="kira-explorer-node is-file is-open " data-level="1" data-node-id="tree-node-1-80" style="--node-order: 80; --child-index: 0;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/05-card-art-and-skin-replacement/" title="01 卡图&amp;Spine">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															01 卡图&amp;Spine
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="1" data-node-id="tree-node-1-81" style="--node-order: 81; --child-index: 1;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/06-style-art-drawing/" title="02 风格原画绘制">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															02 风格原画绘制
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-folder  " data-level="1" data-node-id="tree-node-1-82" style="--node-order: 82; --child-index: 2;">
+								<div class="kira-explorer-row">
+									
+										<button class="kira-explorer-toggle" type="button" aria-expanded="false" aria-controls="tree-node-1-82">
+											<span class="kira-explorer-caret"></span>
+										</button>
+										
+
+												
+														<span class="kira-explorer-link is-label" title="03 特效与动画">
+															<i class="kirafont icon-folder"></i>
+															<span class="kira-explorer-text">
+																03 特效与动画
+															</span>
+														
+								</span></div>
+
+								
+									<div class="kira-explorer-children" id="tree-node-1-82" style="--children-height: 210px;">
+										<ul class="kira-explorer-list">
+											
+							<li class="kira-explorer-node is-file is-open " data-level="2" data-node-id="tree-node-2-83" style="--node-order: 83; --child-index: 0;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/09-01-frame-animation/" title="01 帧动画的处理">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															01 帧动画的处理
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="2" data-node-id="tree-node-2-84" style="--node-order: 84; --child-index: 1;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/09-02-texture-atlas/" title="02 材质图集">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															02 材质图集
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="2" data-node-id="tree-node-2-85" style="--node-order: 85; --child-index: 2;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/09-03-vfx-instantiation/" title="03 特效的播放(实例化)与缓存">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															03 特效的播放(实例化)与缓存
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="2" data-node-id="tree-node-2-86" style="--node-order: 86; --child-index: 3;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/09-04-particle-vfx/" title="04 粒子特效">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															04 粒子特效
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="2" data-node-id="tree-node-2-87" style="--node-order: 87; --child-index: 4;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/09-05-world-environment/" title="05 全局环境光照">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															05 全局环境光照
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="2" data-node-id="tree-node-2-88" style="--node-order: 88; --child-index: 5;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/09-06-shader/" title="06 Shader">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															06 Shader
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="2" data-node-id="tree-node-2-89" style="--node-order: 89; --child-index: 6;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/docs/09-07-game-builtin-vfx/" title="07 游戏本体特效">
+														<i class="kirafont icon-file"></i>
+														<span class="kira-explorer-text">
+															07 游戏本体特效
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+										</ul>
+									</div>
+									
+							</li>
+							
+										</ul>
+									</div>
+									
+							</li>
+							
+							<li class="kira-explorer-node is-folder is-open " data-level="0" data-node-id="tree-node-0-90" style="--node-order:90;">
+								<div class="kira-explorer-row">
+									
+										<button class="kira-explorer-toggle" type="button" aria-expanded="true" aria-controls="tree-node-0-90">
+											<span class="kira-explorer-caret"></span>
+										</button>
+										
+
+												
+														<span class="kira-explorer-link is-label" title="工具">
+															<i class="kirafont icon-book"></i>
+															<span class="kira-explorer-text">
+																工具
+															</span>
+														
+								</span></div>
+
+								
+									<div class="kira-explorer-children" id="tree-node-0-90" style="--children-height: 120px;">
+										<ul class="kira-explorer-list">
+											
+							<li class="kira-explorer-node is-file is-open " data-level="1" data-node-id="tree-node-1-91" style="--node-order: 91; --child-index: 0;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/tools/id-generator/" title="ID 生成器">
+														<i class="kirafont icon-container"></i>
+														<span class="kira-explorer-text">
+															ID 生成器
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="1" data-node-id="tree-node-1-92" style="--node-order: 92; --child-index: 1;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/tools/card-frame-preview/" title="卡框预览器">
+														<i class="kirafont icon-container"></i>
+														<span class="kira-explorer-text">
+															卡框预览器
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="1" data-node-id="tree-node-1-93" style="--node-order: 93; --child-index: 2;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/tools/text-preview/" title="文本预览器">
+														<i class="kirafont icon-container"></i>
+														<span class="kira-explorer-text">
+															文本预览器
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+							<li class="kira-explorer-node is-file is-open " data-level="1" data-node-id="tree-node-1-94" style="--node-order: 94; --child-index: 3;">
+								<div class="kira-explorer-row">
+									
+											<span class="kira-explorer-toggle-spacer"></span>
+											
+
+												
+													<a class="kira-explorer-link mdui-ripple" href="https://tutorials.sts2modding.com/tools/dialogue-preview/" title="对话预览器">
+														<i class="kirafont icon-container"></i>
+														<span class="kira-explorer-text">
+															对话预览器
+														</span>
+													</a>
+													
+								</div>
+
+								
+							</li>
+							
+										</ul>
+									</div>
+									
+							</li>
+							
+					</ul>
+					<div class="kira-explorer-hover-indicator is-visible" aria-hidden="true" style="--hover-x: 43px; --hover-y: 72.171875px; --hover-w: 200px; --hover-h: 27.65625px;"></div>
+					
+			</div>
+			<aside id="kira-sidebar">
+				
+			</aside>
+			<div class="kira-copyright">
+				© 2026
+					<a href="https://tutorials.sts2modding.com/index.html">
+						Reme
+					</a>
+					Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> &amp;
+						<a href="https://github.com/ch1ny/kira-hexo/" target="_blank">Kira-Hexo</a>
+						<br>
+						
+								
+			</div>
+		</div>
+	</div>
+</div>
+<div class="kira-sidebar-modal" id="sidebar-modal" onclick="(function(self) {
+		self.classList.remove(&#39;show&#39;);
+		document.querySelector(&#39;.kira-sidebar.show#sidebar&#39;).classList.remove(&#39;show&#39;);
+	})(this)"></div>
+<script>
+	(function () {
+		var tree = document.querySelector('.kira-docs-tree.kira-explorer');
+		if (!tree) return;
+
+		var folders = tree.querySelectorAll('.kira-explorer-node.is-folder');
+		var indicator = tree.querySelector('.kira-explorer-hover-indicator');
+		var foldAnimTimer = null;
+		var storageKey = 'kira:docs-tree:open-state';
+		var sidebarScrollKey = 'kira:sidebar-scroll-top';
+		var sidebarScroll = document.getElementById('kira-sidebar-scroll');
+		var storedFolderState = readFolderState();
+
+		function saveSidebarScroll() {
+			if (!sidebarScroll || !window.localStorage) return;
+			try {
+				localStorage.setItem(sidebarScrollKey, String(sidebarScroll.scrollTop));
+			} catch (error) { }
+		}
+
+		function restoreSidebarScroll() {
+			if (!sidebarScroll || !window.localStorage) return;
+			try {
+				var raw = localStorage.getItem(sidebarScrollKey);
+				if (raw == null) return;
+				var top = parseInt(raw, 10);
+				if (!isNaN(top) && top >= 0) sidebarScroll.scrollTop = top;
+			} catch (error) { }
+		}
+
+		function readFolderState() {
+			try {
+				var raw = window.localStorage ? localStorage.getItem(storageKey) : null;
+				return raw ? JSON.parse(raw) : null;
+			} catch (error) {
+				return null;
+			}
+		}
+
+		function writeFolderState() {
+			try {
+				if (!window.localStorage) return;
+				var state = {};
+				folders.forEach(function (folder) {
+					var nodeId = folder.getAttribute('data-node-id');
+					if (nodeId) state[nodeId] = folder.classList.contains('is-open');
+				});
+				localStorage.setItem(storageKey, JSON.stringify(state));
+			} catch (error) {
+			}
+		}
+
+		function getChildrenBox(folder) {
+			return folder.querySelector(':scope > .kira-explorer-children');
+		}
+
+		function updateChildrenHeight(folder) {
+			var box = getChildrenBox(folder);
+			if (!box) return;
+			box.style.setProperty('--children-height', box.scrollHeight + 'px');
+		}
+
+		function refreshAncestorHeights(fromNode) {
+			var cursor = fromNode;
+			while (cursor && cursor !== tree) {
+				if (cursor.classList && cursor.classList.contains('kira-explorer-node') && cursor.classList.contains('is-folder')) {
+					updateChildrenHeight(cursor);
+				}
+				cursor = cursor.parentElement;
+			}
+		}
+
+		function refreshAllFolderHeights() {
+			Array.prototype
+				.slice.call(folders)
+				.sort(function (a, b) {
+					return Number(b.getAttribute('data-level') || 0) - Number(a.getAttribute('data-level') || 0);
+				})
+				.forEach(function (folder) {
+					updateChildrenHeight(folder);
+				});
+		}
+
+		function scheduleHeightSync() {
+			refreshAllFolderHeights();
+			requestAnimationFrame(function () {
+				refreshAllFolderHeights();
+				requestAnimationFrame(function () {
+					refreshAllFolderHeights();
+				});
+			});
+			setTimeout(refreshAllFolderHeights, 120);
+			setTimeout(refreshAllFolderHeights, 360);
+		}
+
+		function triggerFoldAnimationWindow() {
+			tree.classList.add('is-fold-animating');
+			if (foldAnimTimer) clearTimeout(foldAnimTimer);
+			foldAnimTimer = setTimeout(function () {
+				tree.classList.remove('is-fold-animating');
+				foldAnimTimer = null;
+			}, 520);
+		}
+
+		function setFolderOpen(folder, shouldOpen, animate, persist) {
+			if (!folder) return;
+			if (animate) triggerFoldAnimationWindow();
+			updateChildrenHeight(folder);
+			folder.classList.toggle('is-open', shouldOpen);
+			var btn = folder.querySelector(':scope > .kira-explorer-row .kira-explorer-toggle');
+			if (btn) btn.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
+			if (persist !== false) writeFolderState();
+			requestAnimationFrame(function () {
+				refreshAncestorHeights(folder);
+				requestAnimationFrame(function () {
+					refreshAncestorHeights(folder);
+				});
+			});
+		}
+
+		function openAncestors(node) {
+			var parent = node ? node.parentElement : null;
+			while (parent && parent !== tree) {
+				if (parent.classList && parent.classList.contains('kira-explorer-children')) {
+					var folderNode = parent.closest('.kira-explorer-node.is-folder');
+					if (folderNode) setFolderOpen(folderNode, true, false, false);
+				}
+				parent = parent.parentElement;
+			}
+		}
+
+		folders.forEach(function (folder) {
+			var nodeId = folder.getAttribute('data-node-id');
+			if (storedFolderState && Object.prototype.hasOwnProperty.call(storedFolderState, nodeId)) {
+				folder.classList.toggle('is-open', !!storedFolderState[nodeId]);
+				var btn = folder.querySelector(':scope > .kira-explorer-row .kira-explorer-toggle');
+				if (btn) btn.setAttribute('aria-expanded', storedFolderState[nodeId] ? 'true' : 'false');
+			}
+			updateChildrenHeight(folder);
+			var children = getChildrenBox(folder);
+			if (children) {
+				Array.prototype.forEach.call(children.querySelectorAll(':scope > .kira-explorer-list > .kira-explorer-node'), function (child, index) {
+					child.style.setProperty('--child-index', index);
+				});
+			}
+		});
+
+		function toggleFolderFromRow(event, row) {
+			if (event.target.closest('.kira-explorer-toggle')) return;
+			var folder = row.closest('.kira-explorer-node.is-folder');
+			if (!folder) return;
+			var link = event.target.closest('a.kira-explorer-link');
+			if (link && (event.ctrlKey || event.metaKey || event.shiftKey || event.button === 1)) {
+				return;
+			}
+			if (link && !link.classList.contains('is-label')) {
+				event.preventDefault();
+			}
+			setFolderOpen(folder, !folder.classList.contains('is-open'), true);
+		}
+
+		tree.querySelectorAll('.kira-explorer-toggle').forEach(function (btn) {
+			btn.addEventListener('click', function (event) {
+				event.preventDefault();
+				event.stopPropagation();
+				var folder = btn.closest('.kira-explorer-node.is-folder');
+				if (!folder) return;
+				setFolderOpen(folder, !folder.classList.contains('is-open'), true);
+			});
+		});
+
+		tree.querySelectorAll('.kira-explorer-node.is-folder > .kira-explorer-row').forEach(function (row) {
+			row.addEventListener('click', function (event) {
+				toggleFolderFromRow(event, row);
+			});
+		});
+
+		var activeNode = tree.querySelector('.kira-explorer-node.is-active');
+		if (activeNode) openAncestors(activeNode);
+		scheduleHeightSync();
+
+		tree.querySelectorAll('a.kira-explorer-link[href]').forEach(function (link) {
+			link.addEventListener('click', saveSidebarScroll);
+		});
+
+		restoreSidebarScroll();
+		requestAnimationFrame(function () {
+			restoreSidebarScroll();
+		});
+		window.addEventListener('load', restoreSidebarScroll);
+		window.addEventListener('pageshow', restoreSidebarScroll);
+		window.addEventListener('beforeunload', saveSidebarScroll);
+
+		function moveIndicatorTo(link, visible) {
+			if (!indicator) return;
+			if (!link || visible === false) {
+				indicator.classList.remove('is-visible');
+				return;
+			}
+
+			var rootRect = tree.getBoundingClientRect();
+			var rect = link.getBoundingClientRect();
+			indicator.style.setProperty('--hover-x', (rect.left - rootRect.left) + 'px');
+			indicator.style.setProperty('--hover-y', (rect.top - rootRect.top) + 'px');
+			indicator.style.setProperty('--hover-w', rect.width + 'px');
+			indicator.style.setProperty('--hover-h', rect.height + 'px');
+			indicator.classList.add('is-visible');
+		}
+
+		var activeLink = activeNode ? activeNode.querySelector(':scope > .kira-explorer-row .kira-explorer-link') : null;
+		if (activeLink) moveIndicatorTo(activeLink, true);
+
+		tree.querySelectorAll('.kira-explorer-link').forEach(function (link) {
+			link.addEventListener('mouseenter', function () {
+				moveIndicatorTo(link, true);
+			});
+		});
+
+		tree.addEventListener('mouseleave', function () {
+			if (activeLink) {
+				moveIndicatorTo(activeLink, true);
+				return;
+			}
+			moveIndicatorTo(null, false);
+		});
+
+		window.addEventListener('resize', function () {
+			refreshAllFolderHeights();
+			if (indicator && indicator.classList.contains('is-visible')) {
+				moveIndicatorTo(activeLink, !!activeLink);
+			}
+		});
+
+		window.addEventListener('load', function () {
+			scheduleHeightSync();
+		});
+
+		if (document.fonts && document.fonts.ready) {
+			document.fonts.ready.then(function () {
+				scheduleHeightSync();
+			});
+		}
+
+		if (window.ResizeObserver) {
+			var resizeObserver = new ResizeObserver(function () {
+				refreshAllFolderHeights();
+			});
+			folders.forEach(function (folder) {
+				var box = getChildrenBox(folder);
+				if (box) resizeObserver.observe(box);
+			});
+		}
+
+	})();
+</script>
+<script>
+	(function () {
+		var input = document.getElementById('kira-search-input');
+		var results = document.getElementById('kira-search-results');
+		var docsTree = document.querySelector('.kira-docs-tree');
+		if (!input || !results || !docsTree) return;
+
+		var baseRoot = '/';
+		var indexedPosts = [];
+		var loadingPromise = null;
+
+		function escapeHtml(text) {
+			return (text || '')
+				.replace(/&/g, '&amp;')
+				.replace(/</g, '&lt;')
+				.replace(/>/g, '&gt;')
+				.replace(/"/g, '&quot;')
+				.replace(/'/g, '&#39;');
+		}
+
+		function normalize(text) {
+			return (text || '').toLowerCase();
+		}
+
+		function resolveUrl(url) {
+			if (!url) return '#';
+			if (/^https?:\/\//i.test(url)) return url;
+			url = url.replace(/^\/{2,}/, '/'); // fix double slashes from hexo generator
+			if (url.indexOf(baseRoot) === 0) return url;
+			if (url.charAt(0) === '/') return url;
+			return baseRoot + url.replace(/^\/+/, '');
+		}
+
+		function getSnippet(content, query) {
+			var plain = (content || '').replace(/\s+/g, ' ').trim();
+			if (!plain) return '';
+			var lower = plain.toLowerCase();
+			var keywordIndex = lower.indexOf(query);
+			if (keywordIndex < 0) return plain.slice(0, 100);
+			var start = Math.max(0, keywordIndex - 25);
+			var end = Math.min(plain.length, keywordIndex + 75);
+			return (start > 0 ? '…' : '') + plain.slice(start, end) + (end < plain.length ? '…' : '');
+		}
+
+		function setResultHtml(html) {
+			results.innerHTML = html;
+			results.hidden = false;
+			docsTree.style.display = 'none';
+		}
+
+		function resetSearchView() {
+			results.innerHTML = '';
+			results.hidden = true;
+			docsTree.style.display = '';
+		}
+
+		async function loadIndex() {
+			if (indexedPosts.length) return indexedPosts;
+			if (!loadingPromise) {
+				loadingPromise = fetch('../../search.json')
+					.then(function (response) {
+						if (!response.ok) throw new Error('Search index request failed');
+						return response.json();
+					})
+					.then(function (payload) {
+						var records = Array.isArray(payload) ? payload : (payload.posts || []);
+						indexedPosts = records
+							.map(function (item) {
+								return {
+									title: item.title || '',
+									content: item.content || '',
+									url: item.url || item.path || ''
+								};
+							})
+							.filter(function (item) {
+								return item.url;
+							});
+						return indexedPosts;
+					});
+			}
+			return loadingPromise;
+		}
+
+		input.addEventListener('input', async function () {
+			var rawQuery = input.value || '';
+			var query = normalize(rawQuery.trim());
+			if (!query) {
+				resetSearchView();
+				return;
+			}
+			setResultHtml('<div class="kira-search-state">正在搜索...</div>');
+
+			try {
+				var posts = await loadIndex();
+				var onEnPage = window.location.pathname.indexOf('/en/') === 0 || window.location.pathname === '/en';
+				var matched = posts.filter(function (item) {
+					var isEnResult = item.url && (item.url.indexOf('/en/') >= 0);
+					if (onEnPage !== isEnResult) return false; // match page language → result language
+					return normalize(item.title).indexOf(query) !== -1 || normalize(item.content).indexOf(query) !== -1;
+				}).slice(0, 20);
+
+				if (!matched.length) {
+					setResultHtml('<div class="kira-search-state">没有找到匹配内容</div>');
+					return;
+				}
+
+				var html = matched.map(function (item) {
+					var title = escapeHtml(item.title || '未命名文章');
+					var snippet = escapeHtml(getSnippet(item.content, query));
+					var href = escapeHtml(resolveUrl(item.url));
+					return '<a class="kira-search-item" href="' + href + '"><div class="kira-search-item-title">' + title + '</div><div class="kira-search-item-snippet">' + snippet + '</div></a>';
+				}).join('');
+
+				setResultHtml(html);
+			} catch (error) {
+				setResultHtml('<div class="kira-search-state">搜索索引加载失败，请稍后重试</div>');
+			}
+		});
+	})();
+</script>
+			<div class="kira-content" style="">
+				<div id="kira-top-header"></div>
+				<div class="kira-main-content">
+					
+<link rel="stylesheet" href="./环境配置 - 杀戮尖塔2mod制作教程_files/kira-image.css">
+
+
+<script src="./环境配置 - 杀戮尖塔2mod制作教程_files/kira-image.js.下载"></script>
+
+
+	
+		
+<link rel="stylesheet" href="./环境配置 - 杀戮尖塔2mod制作教程_files/kira-code-copy.css">
+
+			
+<script src="./环境配置 - 杀戮尖塔2mod制作教程_files/kira-code-copy.js.下载"></script>
+
+				
+					<div class="kira-post">
+						<article>
+							<div class="kira-post-title">
+								<h1><strong>
+										环境配置
+									</strong></h1>
+							</div>
+							
+							
+							<div class="kira-post-meta kira-rainbow" style="margin:10px 0!important;">
+								<a><i class="kirafont icon-calendar-fill"></i>2026年03月07日</a>
+								<a><i class="kirafont icon-edit-fill"></i>
+									2.5k 字
+								</a>
+								<a><i class="kirafont icon-time-circle-fill"></i>大概 12 分钟</a>
+								
+								
+								<a class="kira-post-meta-author"><i class="kirafont icon-user"></i>Reme</a>
+								
+							</div>
+							
+							<p>以防你有网络问题下载工具：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1yuxPkDpCV8EVLkDubqiirg?pwd=apar">https://pan.baidu.com/s/1yuxPkDpCV8EVLkDubqiirg?pwd=apar</a></p>
+<h2 id="编程基础" class="kira-heading-with-anchor"><span class="kira-heading-text"><span>编程基础</span></span><a class="kira-heading-anchor" href="https://tutorials.sts2modding.com/docs/01-env-setup/#%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80" aria-label="链接到此章节">#</a></h2><p>阅读本教程你至少需要：</p>
+<ul>
+<li>C#语言基础（或者其他语言的基础） <a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/dotnet/csharp/tour-of-csharp/">https://learn.microsoft.com/zh-cn/dotnet/csharp/tour-of-csharp/</a></li>
+<li>json文本基础 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Scripting/JSON">https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Scripting/JSON</a></li>
+<li>使用Godot编辑器的简单功能</li>
+<li>图片编辑处理能力</li>
+<li>懂得使用电脑</li>
+</ul>
+<h2 id="其他教程和mod模板" class="kira-heading-with-anchor"><span class="kira-heading-text"><span>其他教程和mod模板</span></span><a class="kira-heading-anchor" href="https://tutorials.sts2modding.com/docs/01-env-setup/#%E5%85%B6%E4%BB%96%E6%95%99%E7%A8%8B%E5%92%8Cmod%E6%A8%A1%E6%9D%BF" aria-label="链接到此章节">#</a></h2><p><a target="_blank" rel="noopener" href="https://github.com/freude916/sts2-quickRestart/blob/main/README.md">https://github.com/freude916/sts2-quickRestart/blob/main/README.md</a></p>
+<p><code>ritsulib</code>模板：<a target="_blank" rel="noopener" href="https://github.com/alkaid616/RitsuLibModTemplate">https://github.com/alkaid616/RitsuLibModTemplate</a></p>
+<p><code>baselib</code>模板：<a target="_blank" rel="noopener" href="https://github.com/Alchyr/ModTemplate-StS2">https://github.com/Alchyr/ModTemplate-StS2</a></p>
+<h2 id="安装godot-451-mono" class="kira-heading-with-anchor"><span class="kira-heading-text"><span>安装Godot 4.5.1 Mono</span></span><a class="kira-heading-anchor" href="https://tutorials.sts2modding.com/docs/01-env-setup/#%E5%AE%89%E8%A3%85godot-451-mono" aria-label="链接到此章节">#</a></h2><p>《杀戮尖塔2》是用<code>Godot4.5.1 Mono</code>开发的，所以你需要安装<code>Godot4.5.1 Mono</code>版本的编辑器。</p>
+<p>进入<a target="_blank" rel="noopener" href="https://godotengine.org/download/archive/4.5.1-stable/">Godot下载界面</a>，下载并安装编辑器。注意选择<code>.NET</code>版本。<br><img data-fancybox="gallery" data-sizes="auto" data-src="/images/image1.webp" alt="alt text" class="lazyautosizes lazyloaded" sizes="965px" src="./环境配置 - 杀戮尖塔2mod制作教程_files/image1.webp"></p>
+<p>或者，你也可以下载制作组自己使用的Godot修改版本<a target="_blank" rel="noopener" href="https://megadot.megacrit.com/">MegaDot</a>。由于暂不清楚这个版本和官方版本的区别，所以建议直接使用官方版本。</p>
+<h2 id="安装net-sdk" class="kira-heading-with-anchor"><span class="kira-heading-text"><span>安装.NET SDK</span></span><a class="kira-heading-anchor" href="https://tutorials.sts2modding.com/docs/01-env-setup/#%E5%AE%89%E8%A3%85net-sdk" aria-label="链接到此章节">#</a></h2><p>下载一个<a target="_blank" rel="noopener" href="https://dotnet.microsoft.com/zh-cn/download">.NET SDK</a>，下载.NET 9以上版本。</p>
+<h2 id="选择文本编辑器" class="kira-heading-with-anchor"><span class="kira-heading-text"><span>选择文本编辑器</span></span><a class="kira-heading-anchor" href="https://tutorials.sts2modding.com/docs/01-env-setup/#%E9%80%89%E6%8B%A9%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8" aria-label="链接到此章节">#</a></h2><p>选择一个文本编辑器。可以使用<a target="_blank" rel="noopener" href="https://code.visualstudio.com/">Visual Studio Code</a>或者<a target="_blank" rel="noopener" href="https://www.jetbrains.com/zh-cn/rider/download/?section=windows">Rider</a>（<b>强烈推荐</b>新手使用Rider）。另外也可以使用Visual Studio等其他 IDE。以下只介绍 VS Code 的配置方法。</p>
+<p><b>强烈推荐</b>新手使用Rider</p>
+<p><b>强烈推荐</b>新手使用Rider</p>
+<p><b>强烈推荐</b>新手使用Rider</p>
+<h2 id="安装vs-code插件可选" class="kira-heading-with-anchor"><span class="kira-heading-text"><span>安装VS Code插件（可选）</span></span><a class="kira-heading-anchor" href="https://tutorials.sts2modding.com/docs/01-env-setup/#%E5%AE%89%E8%A3%85vs-code%E6%8F%92%E4%BB%B6%E5%8F%AF%E9%80%89" aria-label="链接到此章节">#</a></h2><p>安装<a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit">C# Dev Kit</a>。你还可以安装<a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=geequlim.godot-tools">Godot Tools</a>等插件。</p>
+<p>记得打开设置把自动保存开了。</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="/images/image2.webp" alt="alt text" class="lazyautosizes lazyloaded" sizes="965px" src="./环境配置 - 杀戮尖塔2mod制作教程_files/image2.webp"></p>
+<h2 id="参考官方文档" class="kira-heading-with-anchor"><span class="kira-heading-text"><span>参考官方文档</span></span><a class="kira-heading-anchor" href="https://tutorials.sts2modding.com/docs/01-env-setup/#%E5%8F%82%E8%80%83%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3" aria-label="链接到此章节">#</a></h2><p>如有问题可以参考Godot的官方文档：<a target="_blank" rel="noopener" href="https://docs.godotengine.org/zh-cn/4.x/tutorials/scripting/c_sharp/c_sharp_basics.html">C#开发环境配置</a>。</p>
+<h2 id="创建godot项目" class="kira-heading-with-anchor"><span class="kira-heading-text"><span>创建Godot项目</span></span><a class="kira-heading-anchor" href="https://tutorials.sts2modding.com/docs/01-env-setup/#%E5%88%9B%E5%BB%BAgodot%E9%A1%B9%E7%9B%AE" aria-label="链接到此章节">#</a></h2><p>打开<code>Godot</code>创建一个新项目。渲染器尽量使用<code>Mobile/移动</code>，以和游戏保持一致。记住你的项目名。</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="/images/image3.webp" alt="alt text" class="lazyautosizes lazyloaded" sizes="965px" src="./环境配置 - 杀戮尖塔2mod制作教程_files/image3.webp"></p>
+<h2 id="创建c解决方案" class="kira-heading-with-anchor"><span class="kira-heading-text"><span>创建C#解决方案</span></span><a class="kira-heading-anchor" href="https://tutorials.sts2modding.com/docs/01-env-setup/#%E5%88%9B%E5%BB%BAc%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88" aria-label="链接到此章节">#</a></h2><p>点击左上角的“创建C#解决方案”按钮。</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="/images/image4.webp" alt="alt text" class="lazyautosizes lazyloaded" sizes="965px" src="./环境配置 - 杀戮尖塔2mod制作教程_files/image4.webp"></p>
+<h2 id="创建modidjson" class="kira-heading-with-anchor"><span class="kira-heading-text"><span>创建{modid}.json</span></span><a class="kira-heading-anchor" href="https://tutorials.sts2modding.com/docs/01-env-setup/#%E5%88%9B%E5%BB%BAmodidjson" aria-label="链接到此章节">#</a></h2><p>用你的IDE（VSCode、Rider、VS等）打开项目文件夹。创建一个新文件（双击资源管理器或者右键新建文件），名字为<code>{modid}.json</code>。<code>modid</code>建议和项目名以及其中内容相同。填写以下内容。</p>
+<ul>
+<li><b>不是创建<code>{modid}.json</code>这么一个文件，而是把<code>{modid}</code>替换成你的项目名，例如<code>Test.json</code>。之后提到的<code>{}</code> <code>[]</code>都是替换。</b></li>
+</ul>
+<figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">{</span><br>  <span class="hljs-attr">"id"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"MyMod"</span><span class="hljs-punctuation">,</span>           <span class="hljs-comment">// 必填，唯一 ID，建议和项目名一致</span><br>  <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"我的 Mod"</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">"author"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"作者名"</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">"description"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Mod 描述"</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">"version"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"0.1.0"</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">"min_game_version"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"0.107.1"</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// 你的mod兼容的最小游戏版本</span><br>  <span class="hljs-attr">"has_pck"</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>         <span class="hljs-comment">// 是否有 .pck 资源包</span><br>  <span class="hljs-attr">"has_dll"</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>        <span class="hljs-comment">// 是否有 .dll 代码</span><br>  <span class="hljs-attr">"dependencies"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>     <span class="hljs-comment">// 依赖的其他mod id</span><br>  <span class="hljs-attr">"affects_gameplay"</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span> <span class="hljs-comment">// 多人模式时是否影响内容，如果是替换模型和优化等不影响内容的mod可填false，默认true</span><br><span class="hljs-punctuation">}</span><br></code></pre></td></tr></tbody></table><div class="kira-codeblock-copy-wrapper"></div></figure>
+
+<ul>
+<li>所有版本的字符串必须符合<a target="_blank" rel="noopener" href="https://semver.org/">标准版本语义</a>。简单来说必须是<code>X.X.X</code>三段，而不能是两段了。</li>
+</ul>
+<p>依赖的写法：</p>
+<blockquote>
+<figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-attr">"dependencies"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>  <span class="hljs-punctuation">{</span> <span class="hljs-attr">"id"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"STS2-RitsuLib"</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">"min_version"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"0.2.27"</span> <span class="hljs-punctuation">}</span><br><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span><br></code></pre></td></tr></tbody></table><div class="kira-codeblock-copy-wrapper"></div></figure>
+</blockquote>
+<h2 id="修改csproj" class="kira-heading-with-anchor"><span class="kira-heading-text"><span>修改.csproj</span></span><a class="kira-heading-anchor" href="https://tutorials.sts2modding.com/docs/01-env-setup/#%E4%BF%AE%E6%94%B9csproj" aria-label="链接到此章节">#</a></h2><p>打开你的<code>.csproj</code>文件，<b><em>修改</em></b>并换成以下内容：</p>
+<ul>
+<li><p><code>Rider</code>为右键你的项目，点击<code>Edit - Edit csproj</code>。</p>
+</li>
+<li><p><code>VSCode</code>直接找你项目里的<code>.csproj</code>文件编辑。</p>
+</li>
+</ul>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="/images/image44.webp" alt="alt text" class="lazyautosizes lazyloaded" sizes="965px" src="https://tutorials.sts2modding.com/images/image44.webp"></p>
+<figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">Project</span> <span class="hljs-attr">Sdk</span>=<span class="hljs-string">"Godot.NET.Sdk/4.5.1"</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">PropertyGroup</span>&gt;</span><br>    <span class="hljs-comment">&lt;!-- 如果你安装了10.0并遇到问题，改下这里 --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">TargetFramework</span>&gt;</span>net9.0<span class="hljs-tag">&lt;/<span class="hljs-name">TargetFramework</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">ImplicitUsings</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">ImplicitUsings</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">LangVersion</span>&gt;</span>13.0<span class="hljs-tag">&lt;/<span class="hljs-name">LangVersion</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">Nullable</span>&gt;</span>enable<span class="hljs-tag">&lt;/<span class="hljs-name">Nullable</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">AllowUnsafeBlocks</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">AllowUnsafeBlocks</span>&gt;</span><br><br>    <span class="hljs-comment">&lt;!-- 改成你的杀戮尖塔2目录 --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">Sts2Dir</span>&gt;</span>D:\xxx\Steam\steamapps\common\Slay the Spire 2<span class="hljs-tag">&lt;/<span class="hljs-name">Sts2Dir</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">Sts2DataDir</span>&gt;</span>$(Sts2Dir)\data_sts2_windows_x86_64<span class="hljs-tag">&lt;/<span class="hljs-name">Sts2DataDir</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">PropertyGroup</span>&gt;</span><br><br>  <span class="hljs-tag">&lt;<span class="hljs-name">ItemGroup</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">Reference</span> <span class="hljs-attr">Include</span>=<span class="hljs-string">"sts2"</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">HintPath</span>&gt;</span>$(Sts2DataDir)\sts2.dll<span class="hljs-tag">&lt;/<span class="hljs-name">HintPath</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">Private</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">Private</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">Reference</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">Reference</span> <span class="hljs-attr">Include</span>=<span class="hljs-string">"0Harmony"</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">HintPath</span>&gt;</span>$(Sts2DataDir)\0Harmony.dll<span class="hljs-tag">&lt;/<span class="hljs-name">HintPath</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">Private</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">Private</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">Reference</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">ItemGroup</span>&gt;</span><br><br>  <span class="hljs-comment">&lt;!-- 自动复制dll和json --&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">Target</span> <span class="hljs-attr">Name</span>=<span class="hljs-string">"Copy Mod"</span> <span class="hljs-attr">AfterTargets</span>=<span class="hljs-string">"PostBuildEvent"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">Message</span> <span class="hljs-attr">Text</span>=<span class="hljs-string">"Copying mod to Slay the Spire 2 mods folder..."</span> <span class="hljs-attr">Importance</span>=<span class="hljs-string">"high"</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">MakeDir</span> <span class="hljs-attr">Directories</span>=<span class="hljs-string">"$(Sts2Dir)\mods\"</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">Copy</span> <span class="hljs-attr">SourceFiles</span>=<span class="hljs-string">"$(TargetPath)"</span> <span class="hljs-attr">DestinationFolder</span>=<span class="hljs-string">"$(Sts2Dir)\mods\$(MSBuildProjectName)\"</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">Copy</span> <span class="hljs-attr">SourceFiles</span>=<span class="hljs-string">"$(MSBuildProjectName).json"</span> <span class="hljs-attr">DestinationFolder</span>=<span class="hljs-string">"$(Sts2Dir)/mods/$(MSBuildProjectName)/"</span> /&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">Target</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">Project</span>&gt;</span><br></code></pre></td></tr></tbody></table><div class="kira-codeblock-copy-wrapper"></div></figure>
+
+<h2 id="创建entrycs" class="kira-heading-with-anchor"><span class="kira-heading-text"><span>创建Entry.cs</span></span><a class="kira-heading-anchor" href="https://tutorials.sts2modding.com/docs/01-env-setup/#%E5%88%9B%E5%BB%BAentrycs" aria-label="链接到此章节">#</a></h2><p>创建一个<code>Scripts</code>文件夹，创建一个<code>Entry.cs</code>文件（两者命名随意，为了整洁美观）。内容改成以下：</p>
+<blockquote>
+<p>建议命名空间第一段改成你自己的，不要用<code>Test</code>以免后续更改麻烦。另外不要忘记每个文件都加上<code>namespace</code>！</p>
+</blockquote>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> Godot.Bridge;<br><span class="hljs-keyword">using</span> HarmonyLib;<br><span class="hljs-keyword">using</span> MegaCrit.Sts2.Core.Logging;<br><span class="hljs-keyword">using</span> MegaCrit.Sts2.Core.Modding;<br><br><span class="hljs-keyword">namespace</span> <span class="hljs-title">Test.Scripts</span>;<br><br><span class="hljs-comment">// 必须要加的属性，用于注册Mod。字符串和初始化函数命名一致。</span><br>[<span class="hljs-meta">ModInitializer(nameof(Init))</span>]<br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Entry</span><br>{<br>    <span class="hljs-comment">// 初始化函数</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Init</span>()</span><br>    {<br>        <span class="hljs-comment">// 打patch（即修改游戏代码的功能）用</span><br>        <span class="hljs-comment">// 传入参数随意，只要不和其他人撞车即可</span><br>        <span class="hljs-keyword">var</span> harmony = <span class="hljs-keyword">new</span> Harmony(<span class="hljs-string">"sts2.reme.testmod"</span>);<br>        harmony.PatchAll();<br>        <span class="hljs-comment">// 使得tscn可以加载自定义脚本</span><br>        ScriptManagerBridge.LookupScriptsInAssembly(<span class="hljs-keyword">typeof</span>(Entry).Assembly);<br>        Log.Info(<span class="hljs-string">"Mod initialized!"</span>);<br>    }<br>}<br><br></code></pre></td></tr></tbody></table><div class="kira-codeblock-copy-wrapper"></div></figure>
+
+<h2 id="构建dll" class="kira-heading-with-anchor"><span class="kira-heading-text"><span>构建DLL</span></span><a class="kira-heading-anchor" href="https://tutorials.sts2modding.com/docs/01-env-setup/#%E6%9E%84%E5%BB%BAdll" aria-label="链接到此章节">#</a></h2><p>终端命令行里（找到<code>Terminal</code>按钮，或者快捷键，<code>VSCode</code>为按下<code>ctrl+~</code>，<code>Rider</code>为按下<code>Alt+F12</code>）输入<code>dotnet build</code>（或者vscode按下<code>ctrl+shift+b</code>选择<code>dotnet: build</code>，rider点击菜单构建）创建dll文件。由于之前<code>.csproj</code>文件的配置，dll文件自动复制到游戏根目录的<code>mods</code>文件夹里了。</p>
+<h2 id="导出pck" class="kira-heading-with-anchor"><span class="kira-heading-text"><span>导出PCK</span></span><a class="kira-heading-anchor" href="https://tutorials.sts2modding.com/docs/01-env-setup/#%E5%AF%BC%E5%87%BApck" aria-label="链接到此章节">#</a></h2><p>回到Godot编辑器，点击项目→导出，点击上方的<code>添加</code>一个windows预设，然后</p>
+<ul>
+<li><p>点击<code>导出pck/zip</code>，把文件名字改成<code>[项目名].pck</code>。</p>
+</li>
+<li><p>文件夹选择你之前导出的dll同名目录。</p>
+</li>
+<li><p><b>注意一定得是pck！！！</b></p>
+</li>
+<li><p>可选：由于现在不需要pck里包含<code>mod_manifest.json</code>了，在导出选项里点击<code>资源</code>，<code>从项目中排除文件或目录</code>，填写<code>{modid}.json</code>，<code>modid</code>填你自己的，不要写<code>{modid}</code>。</p>
+</li>
+<li><p>建议之后通过之后的自动打包进行。如果要兼容mac平台见下：</p>
+</li>
+</ul>
+<blockquote>
+<p>用文本编辑器打开<code>export_presets.cfg</code>，将<code>binary_format/architecture="x86_64"</code>改为<code>binary_format/architecture="msil"</code>。</p>
+</blockquote>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="/images/image5.webp" alt="alt text" class="lazyautosizes lazyloaded" sizes="965px" src="https://tutorials.sts2modding.com/images/image5.webp"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="/images/image6.webp" alt="alt text" class="lazyautosizes lazyloaded" sizes="965px" src="https://tutorials.sts2modding.com/images/image6.webp"></p>
+<h2 id="了解导出结果" class="kira-heading-with-anchor"><span class="kira-heading-text"><span>了解导出结果</span></span><a class="kira-heading-anchor" href="https://tutorials.sts2modding.com/docs/01-env-setup/#%E4%BA%86%E8%A7%A3%E5%AF%BC%E5%87%BA%E7%BB%93%E6%9E%9C" aria-label="链接到此章节">#</a></h2><p>现在你的<code>mods</code>文件夹里有一个你的mod命名的文件夹，里面有一个dll文件、一个pck文件和一个json文件，这三个文件是构成一个mod的组件。</p>
+<ul>
+<li>dll文件是mod的代码。如果你没有代码，可以不要。如果你之后改动了代码，只要重新build一下就行。</li>
+<li>pck文件是mod的素材资源。如果你没有素材，可以不要。如果你没有素材上的变动，不需要重新打包一次pck。</li>
+<li>json文件是mod的配置文件，是必须的。</li>
+</ul>
+<h2 id="运行并验证" class="kira-heading-with-anchor"><span class="kira-heading-text"><span>运行并验证</span></span><a class="kira-heading-anchor" href="https://tutorials.sts2modding.com/docs/01-env-setup/#%E8%BF%90%E8%A1%8C%E5%B9%B6%E9%AA%8C%E8%AF%81" aria-label="链接到此章节">#</a></h2><p>运行游戏。第一次会提示是否开启mod，选择是，然后游戏会关闭，打开第二次即可，如果右下角显示“已加载模组”即加载成功。如果发现存档丢失，看下一章。</p>
+<h2 id="rider不启动godot打包可选" class="kira-heading-with-anchor"><span class="kira-heading-text"><span>Rider不启动Godot打包（可选）</span></span><a class="kira-heading-anchor" href="https://tutorials.sts2modding.com/docs/01-env-setup/#rider%E4%B8%8D%E5%90%AF%E5%8A%A8godot%E6%89%93%E5%8C%85%E5%8F%AF%E9%80%89" aria-label="链接到此章节">#</a></h2><p>Godot支持命令行导出pck（首先你需要添加一个导出配置），例如使用终端命令：<code>"{你的godot.exe的路径}" --headless --export-pack "{你的导出配置的名字，例如Windows Desktop}" "{杀戮尖塔根目录}/mods/{你的modid}/{你的modid}.pck"</code>，参考 <a target="_blank" rel="noopener" href="https://docs.godotengine.org/zh-cn/4.x/tutorials/editor/command_line_tutorial.html#exporting">https://docs.godotengine.org/zh-cn/4.x/tutorials/editor/command_line_tutorial.html#exporting</a> 。你可以把这个命令保存成一个cmd或者csproj里的target。</p>
+<p>打开你的<code>csproj</code>并新增以下内容：</p>
+<figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">Project</span> <span class="hljs-attr">Sdk</span>=<span class="hljs-string">"Godot.NET.Sdk/4.5.1"</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">PropertyGroup</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">TargetFramework</span>&gt;</span>net9.0<span class="hljs-tag">&lt;/<span class="hljs-name">TargetFramework</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">ImplicitUsings</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">ImplicitUsings</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">LangVersion</span>&gt;</span>13.0<span class="hljs-tag">&lt;/<span class="hljs-name">LangVersion</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">Nullable</span>&gt;</span>enable<span class="hljs-tag">&lt;/<span class="hljs-name">Nullable</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">AllowUnsafeBlocks</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">AllowUnsafeBlocks</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">Sts2Dir</span>&gt;</span>D:/Files/Softwares/Steam/steamapps/common/Slay the Spire 2<span class="hljs-tag">&lt;/<span class="hljs-name">Sts2Dir</span>&gt;</span><br>      <span class="hljs-comment">&lt;!-- 新增 --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">GodotExe</span>&gt;</span>D:/Files/Projects/godot/Godot_v4.5.1-stable_mono_win64/Godot_v4.5.1-stable_mono_win64/Godot_v4.5.1-stable_mono_win64.exe<span class="hljs-tag">&lt;/<span class="hljs-name">GodotExe</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">Sts2DataDir</span>&gt;</span>$(Sts2Dir)/data_sts2_windows_x86_64<span class="hljs-tag">&lt;/<span class="hljs-name">Sts2DataDir</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">PropertyGroup</span>&gt;</span><br><br>  <span class="hljs-tag">&lt;<span class="hljs-name">ItemGroup</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">Reference</span> <span class="hljs-attr">Include</span>=<span class="hljs-string">"sts2"</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">HintPath</span>&gt;</span>$(Sts2DataDir)/sts2.dll<span class="hljs-tag">&lt;/<span class="hljs-name">HintPath</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">Private</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">Private</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">Reference</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">Reference</span> <span class="hljs-attr">Include</span>=<span class="hljs-string">"0Harmony"</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">HintPath</span>&gt;</span>$(Sts2DataDir)/0Harmony.dll<span class="hljs-tag">&lt;/<span class="hljs-name">HintPath</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">Private</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">Private</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">Reference</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">ItemGroup</span>&gt;</span><br><br>  <span class="hljs-tag">&lt;<span class="hljs-name">Target</span> <span class="hljs-attr">Name</span>=<span class="hljs-string">"Copy Mod"</span> <span class="hljs-attr">AfterTargets</span>=<span class="hljs-string">"PostBuildEvent"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">Message</span> <span class="hljs-attr">Text</span>=<span class="hljs-string">"Copying mod to Slay the Spire 2 mods folder..."</span> <span class="hljs-attr">Importance</span>=<span class="hljs-string">"high"</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">MakeDir</span> <span class="hljs-attr">Directories</span>=<span class="hljs-string">"$(Sts2Dir)/mods/"</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">Copy</span> <span class="hljs-attr">SourceFiles</span>=<span class="hljs-string">"$(TargetPath)"</span> <span class="hljs-attr">DestinationFolder</span>=<span class="hljs-string">"$(Sts2Dir)/mods/$(MSBuildProjectName)/"</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">Copy</span> <span class="hljs-attr">SourceFiles</span>=<span class="hljs-string">"$(MSBuildProjectName).json"</span> <span class="hljs-attr">DestinationFolder</span>=<span class="hljs-string">"$(Sts2Dir)/mods/$(MSBuildProjectName)/"</span> /&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">Target</span>&gt;</span><br><br>  <span class="hljs-comment">&lt;!-- 新增 --&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">Target</span> <span class="hljs-attr">Name</span>=<span class="hljs-string">"ExportPck"</span> <span class="hljs-attr">AfterTargets</span>=<span class="hljs-string">"Publish"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">Message</span> <span class="hljs-attr">Text</span>=<span class="hljs-string">"Copying PCK to Slay the Spire 2 mods folder..."</span> <span class="hljs-attr">Importance</span>=<span class="hljs-string">"high"</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">Exec</span> <span class="hljs-attr">Command</span>=<span class="hljs-string">"<span class="hljs-symbol">&amp;quot;</span>$(GodotExe)<span class="hljs-symbol">&amp;quot;</span> --headless --export-pack <span class="hljs-symbol">&amp;quot;</span>Windows Desktop<span class="hljs-symbol">&amp;quot;</span> <span class="hljs-symbol">&amp;quot;</span>$(Sts2Dir)/mods/$(MSBuildProjectName)/$(MSBuildProjectName).pck<span class="hljs-symbol">&amp;quot;</span>"</span></span><br><span class="hljs-tag">      <span class="hljs-attr">EnvironmentVariables</span>=<span class="hljs-string">"IsInnerGodotExport=true;MSBUILDDISABLENODEREUSE=1"</span></span><br><span class="hljs-tag">      <span class="hljs-attr">ContinueOnError</span>=<span class="hljs-string">"WarnAndContinue"</span> /&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">Target</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">Project</span>&gt;</span><br></code></pre></td></tr></tbody></table><div class="kira-codeblock-copy-wrapper"></div></figure>
+
+<p>然后右键你的项目点击<code>Publish</code>即可。一路点OK就行。</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="/images/image45.webp" alt="alt text" class="lazyautosizes lazyloaded" sizes="965px" src="https://tutorials.sts2modding.com/images/image45.webp"></p>
+<h2 id="vscode不启动godot打包可选" class="kira-heading-with-anchor"><span class="kira-heading-text"><span>VSCode不启动Godot打包（可选）</span></span><a class="kira-heading-anchor" href="https://tutorials.sts2modding.com/docs/01-env-setup/#vscode%E4%B8%8D%E5%90%AF%E5%8A%A8godot%E6%89%93%E5%8C%85%E5%8F%AF%E9%80%89" aria-label="链接到此章节">#</a></h2><p>例如在你的<code>.csproj</code>文件里添加<code>GodoExe</code>和<code>ExportPck</code>的内容：</p>
+<figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">Project</span> <span class="hljs-attr">Sdk</span>=<span class="hljs-string">"Godot.NET.Sdk/4.5.1"</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">PropertyGroup</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">TargetFramework</span>&gt;</span>net9.0<span class="hljs-tag">&lt;/<span class="hljs-name">TargetFramework</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">ImplicitUsings</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">ImplicitUsings</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">LangVersion</span>&gt;</span>13.0<span class="hljs-tag">&lt;/<span class="hljs-name">LangVersion</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">Nullable</span>&gt;</span>enable<span class="hljs-tag">&lt;/<span class="hljs-name">Nullable</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">AllowUnsafeBlocks</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">AllowUnsafeBlocks</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">Sts2Dir</span>&gt;</span>D:/Files/Softwares/Steam/steamapps/common/Slay the Spire 2<span class="hljs-tag">&lt;/<span class="hljs-name">Sts2Dir</span>&gt;</span><br>      <span class="hljs-comment">&lt;!-- 新增 --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">GodotExe</span>&gt;</span>D:/Files/Projects/godot/Godot_v4.5.1-stable_mono_win64/Godot_v4.5.1-stable_mono_win64/Godot_v4.5.1-stable_mono_win64.exe<span class="hljs-tag">&lt;/<span class="hljs-name">GodotExe</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">Sts2DataDir</span>&gt;</span>$(Sts2Dir)/data_sts2_windows_x86_64<span class="hljs-tag">&lt;/<span class="hljs-name">Sts2DataDir</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">PropertyGroup</span>&gt;</span><br><br>  <span class="hljs-tag">&lt;<span class="hljs-name">ItemGroup</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">Reference</span> <span class="hljs-attr">Include</span>=<span class="hljs-string">"sts2"</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">HintPath</span>&gt;</span>$(Sts2DataDir)/sts2.dll<span class="hljs-tag">&lt;/<span class="hljs-name">HintPath</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">Private</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">Private</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">Reference</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">Reference</span> <span class="hljs-attr">Include</span>=<span class="hljs-string">"0Harmony"</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">HintPath</span>&gt;</span>$(Sts2DataDir)/0Harmony.dll<span class="hljs-tag">&lt;/<span class="hljs-name">HintPath</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">Private</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">Private</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">Reference</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">ItemGroup</span>&gt;</span><br><br>  <span class="hljs-tag">&lt;<span class="hljs-name">Target</span> <span class="hljs-attr">Name</span>=<span class="hljs-string">"Copy Mod"</span> <span class="hljs-attr">AfterTargets</span>=<span class="hljs-string">"PostBuildEvent"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">Message</span> <span class="hljs-attr">Text</span>=<span class="hljs-string">"Copying mod to Slay the Spire 2 mods folder..."</span> <span class="hljs-attr">Importance</span>=<span class="hljs-string">"high"</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">MakeDir</span> <span class="hljs-attr">Directories</span>=<span class="hljs-string">"$(Sts2Dir)/mods/"</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">Copy</span> <span class="hljs-attr">SourceFiles</span>=<span class="hljs-string">"$(TargetPath)"</span> <span class="hljs-attr">DestinationFolder</span>=<span class="hljs-string">"$(Sts2Dir)/mods/$(MSBuildProjectName)/"</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">Copy</span> <span class="hljs-attr">SourceFiles</span>=<span class="hljs-string">"$(MSBuildProjectName).json"</span> <span class="hljs-attr">DestinationFolder</span>=<span class="hljs-string">"$(Sts2Dir)/mods/$(MSBuildProjectName)/"</span> /&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">Target</span>&gt;</span><br><br>  <span class="hljs-comment">&lt;!-- 新增 --&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">Target</span> <span class="hljs-attr">Name</span>=<span class="hljs-string">"ExportPck"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">Message</span> <span class="hljs-attr">Text</span>=<span class="hljs-string">"Copying PCK to Slay the Spire 2 mods folder..."</span> <span class="hljs-attr">Importance</span>=<span class="hljs-string">"high"</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">Exec</span> <span class="hljs-attr">Command</span>=<span class="hljs-string">"<span class="hljs-symbol">&amp;quot;</span>$(GodotExe)<span class="hljs-symbol">&amp;quot;</span> --headless --export-pack <span class="hljs-symbol">&amp;quot;</span>Windows Desktop<span class="hljs-symbol">&amp;quot;</span> <span class="hljs-symbol">&amp;quot;</span>$(Sts2Dir)/mods/$(MSBuildProjectName)/$(MSBuildProjectName).pck<span class="hljs-symbol">&amp;quot;</span>"</span></span><br><span class="hljs-tag">      <span class="hljs-attr">EnvironmentVariables</span>=<span class="hljs-string">"IsInnerGodotExport=true;MSBUILDDISABLENODEREUSE=1"</span></span><br><span class="hljs-tag">      <span class="hljs-attr">ContinueOnError</span>=<span class="hljs-string">"WarnAndContinue"</span> /&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">Target</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">Project</span>&gt;</span><br></code></pre></td></tr></tbody></table><div class="kira-codeblock-copy-wrapper"></div></figure>
+
+<p>然后控制台输入<code>dotnet build -t:ExportPck</code>即可连PCK一起导出。输入<code>dotnet build</code>仅编译dll。</p>
+<p>方法不限。你也可以使用<code>tasks.json</code>和<code>publish</code>（modtemplate使用的）。</p>
+<h2 id="mac支持可选" class="kira-heading-with-anchor"><span class="kira-heading-text"><span>mac支持（可选）</span></span><a class="kira-heading-anchor" href="https://tutorials.sts2modding.com/docs/01-env-setup/#mac%E6%94%AF%E6%8C%81%E5%8F%AF%E9%80%89" aria-label="链接到此章节">#</a></h2><p>用文本编辑器打开<code>export_presets.cfg</code>，将<code>binary_format/architecture="x86_64"</code>改为<code>binary_format/architecture="msil"</code>。</p>
+<h2 id="mod图片可选" class="kira-heading-with-anchor"><span class="kira-heading-text"><span>mod图片（可选）</span></span><a class="kira-heading-anchor" href="https://tutorials.sts2modding.com/docs/01-env-setup/#mod%E5%9B%BE%E7%89%87%E5%8F%AF%E9%80%89" aria-label="链接到此章节">#</a></h2><p>在你mod根目录下创建一个和你modid同名的文件夹，里面放一个<code>mod_image.png</code>。</p>
+<script type="module" src="./环境配置 - 杀戮尖塔2mod制作教程_files/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;d622e9c93cb74f408368b3de275c6fcf&quot;,&quot;r&quot;:1}" crossorigin="anonymous"></script>
+
+						</article>
+
+						 
+
+        <div class="kira-post-copyright">
+                    
+                                <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans" target="_blank">CC BY-NC-SA 4.0 CN</a> 协议进行许可
+                                    
+        </div>
+        
+
+								
+											
+												<div class="kira-post-footer">
+													
+
+														
+	<div class="giscus"><iframe class="giscus-frame" title="Comments" scrolling="no" allow="clipboard-write" src="./环境配置 - 杀戮尖塔2mod制作教程_files/widget.html" loading="lazy" style="height: 3154px;"></iframe></div>
+  
+    <script src="./环境配置 - 杀戮尖塔2mod制作教程_files/client.js.下载" data-repo="GlitchedReme/SlayTheSpire2ModdingTutorials" data-repo-id="R_kgDORf0PEA" data-category="Announcements" data-category-id="DIC_kwDORf0PEM4C3zDO" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="dark_dimmed" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous" async=""></script>
+  
+
+												</div>
+												
+					</div>
+
+				</div>
+			</div>
+			
+				<div class="kira-right-column" id="kira-toc-column">
+	<button type="button" class="kira-panel-reopen kira-panel-reopen--toc" id="kira-toc-reopen" hidden="" title="展开本页目录" aria-label="展开本页目录">
+		<i class="kirafont icon-caret-up kira-reopen-icon" aria-hidden="true"></i>
+	</button>
+	<div class="kira-chapters-panel is-visible" id="kira-chapters-panel">
+		<div class="kira-panel-header">
+			<div class="kira-chapters-title">本页目录</div>
+			<button type="button" class="kira-collapse-toggle" id="kira-toc-collapse" aria-expanded="true" aria-controls="kira-chapters-body" title="折叠本页目录" aria-label="折叠本页目录">
+				<i class="kirafont icon-caret-up kira-collapse-icon" aria-hidden="true"></i>
+			</button>
+		</div>
+		<div class="kira-chapters-body" id="kira-chapters-body">
+			<nav class="kira-chapters-nav kira-scrollbar" aria-label="文章目录">
+				<ul id="kira-chapters-list"><li class="kira-chapter-item"><a href="https://tutorials.sts2modding.com/docs/01-env-setup/#%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80">编程基础</a></li><li class="kira-chapter-item"><a href="https://tutorials.sts2modding.com/docs/01-env-setup/#%E5%85%B6%E4%BB%96%E6%95%99%E7%A8%8B%E5%92%8Cmod%E6%A8%A1%E6%9D%BF">其他教程和mod模板</a></li><li class="kira-chapter-item"><a href="https://tutorials.sts2modding.com/docs/01-env-setup/#%E5%AE%89%E8%A3%85godot-451-mono">安装Godot 4.5.1 Mono</a></li><li class="kira-chapter-item"><a href="https://tutorials.sts2modding.com/docs/01-env-setup/#%E5%AE%89%E8%A3%85net-sdk">安装.NET SDK</a></li><li class="kira-chapter-item"><a href="https://tutorials.sts2modding.com/docs/01-env-setup/#%E9%80%89%E6%8B%A9%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8">选择文本编辑器</a></li><li class="kira-chapter-item"><a href="https://tutorials.sts2modding.com/docs/01-env-setup/#%E5%AE%89%E8%A3%85vs-code%E6%8F%92%E4%BB%B6%E5%8F%AF%E9%80%89">安装VS Code插件（可选）</a></li><li class="kira-chapter-item"><a href="https://tutorials.sts2modding.com/docs/01-env-setup/#%E5%8F%82%E8%80%83%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3">参考官方文档</a></li><li class="kira-chapter-item is-active"><a href="https://tutorials.sts2modding.com/docs/01-env-setup/#%E5%88%9B%E5%BB%BAgodot%E9%A1%B9%E7%9B%AE">创建Godot项目</a></li><li class="kira-chapter-item"><a href="https://tutorials.sts2modding.com/docs/01-env-setup/#%E5%88%9B%E5%BB%BAc%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88">创建C#解决方案</a></li><li class="kira-chapter-item"><a href="https://tutorials.sts2modding.com/docs/01-env-setup/#%E5%88%9B%E5%BB%BAmodidjson">创建{modid}.json</a></li><li class="kira-chapter-item"><a href="https://tutorials.sts2modding.com/docs/01-env-setup/#%E4%BF%AE%E6%94%B9csproj">修改.csproj</a></li><li class="kira-chapter-item"><a href="https://tutorials.sts2modding.com/docs/01-env-setup/#%E5%88%9B%E5%BB%BAentrycs">创建Entry.cs</a></li><li class="kira-chapter-item"><a href="https://tutorials.sts2modding.com/docs/01-env-setup/#%E6%9E%84%E5%BB%BAdll">构建DLL</a></li><li class="kira-chapter-item"><a href="https://tutorials.sts2modding.com/docs/01-env-setup/#%E5%AF%BC%E5%87%BApck">导出PCK</a></li><li class="kira-chapter-item"><a href="https://tutorials.sts2modding.com/docs/01-env-setup/#%E4%BA%86%E8%A7%A3%E5%AF%BC%E5%87%BA%E7%BB%93%E6%9E%9C">了解导出结果</a></li><li class="kira-chapter-item"><a href="https://tutorials.sts2modding.com/docs/01-env-setup/#%E8%BF%90%E8%A1%8C%E5%B9%B6%E9%AA%8C%E8%AF%81">运行并验证</a></li><li class="kira-chapter-item"><a href="https://tutorials.sts2modding.com/docs/01-env-setup/#rider%E4%B8%8D%E5%90%AF%E5%8A%A8godot%E6%89%93%E5%8C%85%E5%8F%AF%E9%80%89">Rider不启动Godot打包（可选）</a></li><li class="kira-chapter-item"><a href="https://tutorials.sts2modding.com/docs/01-env-setup/#vscode%E4%B8%8D%E5%90%AF%E5%8A%A8godot%E6%89%93%E5%8C%85%E5%8F%AF%E9%80%89">VSCode不启动Godot打包（可选）</a></li><li class="kira-chapter-item "><a href="https://tutorials.sts2modding.com/docs/01-env-setup/#mac%E6%94%AF%E6%8C%81%E5%8F%AF%E9%80%89">mac支持（可选）</a></li><li class="kira-chapter-item "><a href="https://tutorials.sts2modding.com/docs/01-env-setup/#mod%E5%9B%BE%E7%89%87%E5%8F%AF%E9%80%89">mod图片（可选）</a></li></ul>
+			</nav>
+		</div>
+	</div>
+	<div class="kira-floating-stack">
+		
+<a class="kira-lang-switch" href="https://tutorials.sts2modding.com/en/docs/01-env-setup/" title="Switch to English" aria-label="Switch language / 切换语言">
+	<span class="kira-lang-switch-inner" aria-hidden="true">
+		<svg class="kira-lang-switch-icon" viewBox="0 0 24 24" width="22" height="22" focusable="false"><path fill="currentColor" d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"></path></svg>
+	</span>
+	<span class="kira-lang-switch-tip">English</span>
+</a>
+
+		
+	<div class="kira-community-dock" aria-label="社区链接"><a href="https://qm.qq.com/cgi-bin/qm/qr?k=HDx406XUcnJ0K1QzTnA6Ut9H0hK6ilHO&amp;jump_from=webapi&amp;authKey=8ypo16nsc2xmAZLyroMolrPlNOLpbpaacr9AK33qVEVPYxdT5vrKOnBYhoq9L%2BB6" target="_blank" rel="noopener noreferrer" class="kira-community-dock-btn kira-community-dock-btn--icon mdui-ripple kira-community-dock-btn--qq" title="添加QQ群" aria-label="添加QQ群" style="color: rgb(255, 255, 255); background-color: rgb(18, 183, 245); position: relative;"><i class="kirafont icon-QQ"></i><span class="kira-community-dock-tip">添加QQ群</span></a>
+		
+			
+			<a class="kira-community-dock-btn kira-community-dock-btn--icon mdui-ripple" href="https://github.com/GlitchedReme/SlayTheSpire2ModdingTutorials" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub" style="color: #ffffff; background-color: #24292e;">
+				<i class="kirafont icon-github"></i>
+				<span class="kira-community-dock-tip">GitHub</span>
+			</a>
+		
+	</div>
+
+
+		<a onclick="document.querySelector(&#39;#kira-top-header&#39;).scrollIntoView({behavior: &#39;smooth&#39;});" class="kira-backtotop" aria-label="回到顶部" title="回到顶部">
+			<button class="mdui-fab mdui-ripple">
+				<i class="kirafont icon-caret-up"></i>
+			</button>
+		</a>
+	</div>
+</div>
+
+			
+		</div>
+	
+
+<div class="kira-image">
+    <div class="kira-image-modal">
+        <div class="kira-image-header">
+            <div class="kira-image-counter"></div>
+            <div class="kira-image-title"></div>
+            <div class="kira-image-operation">
+                <div class="kira-image-operation-button" id="kira-image-operation-button-zoom">
+                    <i class="kirafont icon-zoom-in"></i>
+                </div>
+                <div class="kira-image-operation-button" id="kira-image-operation-button-close">
+                    <i class="kirafont icon-close"></i>
+                </div>
+            </div>
+        </div>
+        <div class="kira-image-container">
+            <div class="kira-image-prev-button-panel">
+                <div class="kira-image-exchange-button">
+                    <i class="kirafont icon-left"></i>
+                </div>
+            </div>
+            <div class="kira-image-list">
+                <div class="kira-image-prev">
+                    <img>
+                </div>
+                <div class="kira-image-now">
+                    <img>
+                </div>
+                <div class="kira-image-next">
+                    <img>
+                </div>
+            </div>
+            <div class="kira-image-next-button-panel">
+                <div class="kira-image-exchange-button">
+                    <i class="kirafont icon-right"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div></body><grammarly-desktop-integration data-grammarly-shadow-root="true" style="visibility: visible !important;"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>
