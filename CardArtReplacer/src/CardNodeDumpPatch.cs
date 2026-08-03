@@ -44,12 +44,16 @@ public static class CardNodeDumpPatch
     {
         string[] types =
         {
-            "MegaCrit.Sts2.Core.Nodes.NCardComponent",
+            // 命名空间线索来自 SignatureLib（Entities.UI）与游戏日志（Nodes）。
+            "MegaCrit.Sts2.Core.Entities.UI.NCard",
+            "MegaCrit.Sts2.Core.Entities.UI.NCardComponent",
             "MegaCrit.Sts2.Core.Nodes.NCard",
-            "NCardComponent",
+            "MegaCrit.Sts2.Core.Nodes.NCardComponent",
             "NCard",
+            "NCardComponent",
         };
-        string[] methods = { "UpdateCardDisplay", "RefreshCard", "UpdateCard", "_Ready" };
+        // UpdateVisual 来自 SignatureLib 的方法名，很可能就是卡牌视觉刷新入口。
+        string[] methods = { "UpdateVisual", "UpdateCardDisplay", "RefreshCard", "UpdateCard", "SetCard", "_Ready" };
 
         var seen = new HashSet<MethodBase>();
         foreach (var tn in types)
