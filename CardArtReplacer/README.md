@@ -22,12 +22,13 @@ CardArtReplacer/
 ├─ CardArtReplacer.csproj      编译工程（官方 Godot.NET.Sdk 模板）
 ├─ CardArtReplacer.json        mod 清单（必须，随 dll 一起放进 mods 目录）
 ├─ src/
-│  ├─ Entry.cs                 入口 [ModInitializer]：扫描目录 + Harmony.PatchAll
-│  ├─ CardArtLibrary.cs        扫 image/cards/**，建「卡id→贴图」映射
-│  ├─ CardPortraitPatch.cs     核心补丁：patch CardModel.PortraitPath 返回你的图路径
+│  ├─ Entry.cs                 入口 [ModInitializer]：装补丁 + 开关
+│  ├─ CardArtLibrary.cs        按卡牌类名解析 res:// 图片路径（子目录列表在这）
+│  ├─ CardPortraitPatch.cs     patch CardModel.PortraitPath 返回你的图路径（立绘窗口）
+│  ├─ CardFullArtPatch.cs      全图异画：hook NCard.UpdateVisuals，整卡铺满 + 隐藏边框
 │  └─ ReloadCommand.cs         可选：控制台热重载命令（默认注释）
 └─ image/cards/                ★ 你只需要动这里
-   ├─ defect/  regent/  colorless/  curse/
+   ├─ defect/ regent/ colorless/ curse/ status/ power/   （子目录名需登记在 CardArtLibrary.SubFolders）
    └─ colorless/_sample_full_face.png   606×852 占位样例（可删）
 ```
 

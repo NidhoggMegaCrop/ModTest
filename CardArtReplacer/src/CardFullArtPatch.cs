@@ -22,6 +22,7 @@ public static class CardFullArtPatch
     static readonly FieldInfo? FGroup  = T != null ? AccessTools.Field(T, "_portraitCanvasGroup") : null;
     static readonly FieldInfo? FBorder = T != null ? AccessTools.Field(T, "_portraitBorder") : null;
     static readonly FieldInfo? FBanner = T != null ? AccessTools.Field(T, "_banner") : null;
+    static readonly FieldInfo? FOverlay = T != null ? AccessTools.Field(T, "_overlayContainer") : null;
     static readonly FieldInfo? FTypePlaque = T != null ? AccessTools.Field(T, "_typePlaque") : null;
 
     static readonly HashSet<string> _dumped = new();
@@ -30,7 +31,7 @@ public static class CardFullArtPatch
                  MExp = "car_fexp",  MStr = "car_fstr",
                  MMat = "car_fmat",  MUpm = "car_fupm",
                  MSlf = "car_fself", MMdl = "car_fmod",
-                 MGrp = "car_gvis",  MBrd = "car_bvis", MBan = "car_nvis";
+                 MGrp = "car_gvis",  MBrd = "car_bvis", MBan = "car_nvis", MOvl = "car_ovis";
 
     public static void Install(Harmony harmony)
     {
@@ -48,9 +49,10 @@ public static class CardFullArtPatch
             if (!Entry.FullArt || __instance is not Node ncard) return;
             if (FFrame!.GetValue(ncard) is not TextureRect frame) return;
 
-            var group  = FGroup?.GetValue(ncard) as CanvasItem;
-            var border = FBorder?.GetValue(ncard) as CanvasItem;
-            var banner = FBanner?.GetValue(ncard) as CanvasItem;
+            var group   = FGroup?.GetValue(ncard) as CanvasItem;
+            var border  = FBorder?.GetValue(ncard) as CanvasItem;
+            var banner  = FBanner?.GetValue(ncard) as CanvasItem;
+            var overlay = FOverlay?.GetValue(ncard) as CanvasItem; // 卡专属装饰覆盖层（如 Infection 的动画边框）
 
             var model = FModel?.GetValue(ncard);
             string? className = model?.GetType().Name;
@@ -82,6 +84,7 @@ public static class CardFullArtPatch
                     ncard.SetMeta(MGrp, group?.Visible ?? true);
                     ncard.SetMeta(MBrd, border?.Visible ?? true);
                     ncard.SetMeta(MBan, banner?.Visible ?? true);
+                    ncard.SetMeta(MOvl, overlay?.Visible ?? true);
                 }
 
                 frame.Texture = GD.Load<Texture2D>(path);
@@ -92,9 +95,10 @@ public static class CardFullArtPatch
                 frame.SelfModulate = Colors.White;
                 frame.Modulate = Colors.White;
 
-                if (group  != null) group.Visible  = false;
-                if (border != null) border.Visible = false;
-                if (banner != null) banner.Visible = false;
+                if (group   != null) group.Visible   = false;
+                if (border  != null) border.Visible  = false;
+                if (banner  != null) banner.Visible  = false;
+                if (overlay != null) overlay.Visible = false;
 
                 // 类型文框移到卡片底部居中（游戏每帧会重设它的位置，我们在其后覆盖）。
                 if (Entry.MoveTypePlaqueToBottom && FTypePlaque?.GetValue(ncard) is Control plaque)
@@ -115,9 +119,10 @@ public static class CardFullArtPatch
                 frame.UseParentMaterial = ncard.GetMeta(MUpm, false).AsBool();
                 frame.SelfModulate = ncard.GetMeta(MSlf, Colors.White).AsColor();
                 frame.Modulate = ncard.GetMeta(MMdl, Colors.White).AsColor();
-                if (group  != null) group.Visible  = ncard.GetMeta(MGrp, true).AsBool();
-                if (border != null) border.Visible = ncard.GetMeta(MBrd, true).AsBool();
-                if (banner != null) banner.Visible = ncard.GetMeta(MBan, true).AsBool();
+                if (group   != null) group.Visible   = ncard.GetMeta(MGrp, true).AsBool();
+                if (border  != null) border.Visible  = ncard.GetMeta(MBrd, true).AsBool();
+                if (banner  != null) banner.Visible  = ncard.GetMeta(MBan, true).AsBool();
+                if (overlay != null) overlay.Visible = ncard.GetMeta(MOvl, true).AsBool();
                 ncard.SetMeta(MMod, false);
             }
         }

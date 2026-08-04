@@ -36,9 +36,6 @@ public class Entry
     // 诊断：把“类名包含此串”的卡的节点树 dump 到日志，用于定位某张卡的多余边框。空=关。
     public static string DumpCardName = "";
 
-    // 调试：反射 dump NCard 成员。已搞清结构，默认关闭；需要再看时设 true。
-    public static bool DumpCardNodes = false;
-
     public static void Init()
     {
         LogInfo("init begin");
@@ -52,10 +49,6 @@ public class Entry
         // 全图异画：hook NCard.UpdateVisuals（安全：找不到目标只记日志，不影响核心换图）。
         try { CardFullArtPatch.Install(harmony); }
         catch (System.Exception e) { LogInfo($"fullart install failed: {e.Message}"); }
-
-        // 调试：安装卡牌节点 dump（默认 DumpCardNodes=false，不生效）。
-        try { CardNodeDumpPatch.TryInstall(harmony); }
-        catch (System.Exception e) { LogInfo($"dump install failed: {e.Message}"); }
 
         LogInfo($"patched. card art resolves on demand from res://{ModId}/image/cards/**.");
     }
