@@ -14,8 +14,9 @@ public static class CardArtLibrary
     // 类名 -> 解析结果缓存（res 路径，或 null 表示没配图）。
     private static readonly Dictionary<string, string?> _cache = new();
 
-    // 在这些子目录（外加根目录 ""）下按“类名.png”查找。想用别的子目录名就往这里加。
-    public static string[] SubFolders = { "", "defect", "regent", "colorless", "curse" };
+    // 在这些子目录（外加根目录 ""）下按“类名.png”查找。
+    // ★ 你每新建一个子目录，都要把它的名字加到这个数组里（pck 里无法自动列目录）。
+    public static string[] SubFolders = { "", "defect", "regent", "colorless", "curse", "status", "power" };
     private static readonly string[] Exts = { ".png", ".jpg", ".jpeg" };
 
     public static int Count => _cache.Count;
