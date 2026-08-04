@@ -26,9 +26,11 @@ public class Entry
     // 图配齐后可改成 false 关掉日志。
     public static bool DiscoverCardNames = true;
 
-    // 调试用：把第一张卡的视觉节点树 dump 到日志一次，用来搞清楚全图异画要动哪些节点。
-    // 搞清结构后可设为 false。
-    public static bool DumpCardNodes = true;
+    // 全图异画：把整卡换成你的图（隐藏卡框/立绘窗口/横幅）。设 false 则退回“只换立绘窗口”。
+    public static bool FullArt = true;
+
+    // 调试：反射 dump NCard 成员。已搞清结构，默认关闭；需要再看时设 true。
+    public static bool DumpCardNodes = false;
 
     public static void Init()
     {
@@ -40,7 +42,11 @@ public class Entry
         // 让 .tscn 能加载本程序集内的自定义脚本（官方模板通用写法；本 mod 无自定义脚本也无害）。
         ScriptManagerBridge.LookupScriptsInAssembly(typeof(Entry).Assembly);
 
-        // 调试：安装卡牌节点树 dump（安全：找不到目标只记日志，不影响核心换图）。
+        // 全图异画：hook NCard.UpdateVisuals（安全：找不到目标只记日志，不影响核心换图）。
+        try { CardFullArtPatch.Install(harmony); }
+        catch (System.Exception e) { LogInfo($"fullart install failed: {e.Message}"); }
+
+        // 调试：安装卡牌节点 dump（默认 DumpCardNodes=false，不生效）。
         try { CardNodeDumpPatch.TryInstall(harmony); }
         catch (System.Exception e) { LogInfo($"dump install failed: {e.Message}"); }
 
