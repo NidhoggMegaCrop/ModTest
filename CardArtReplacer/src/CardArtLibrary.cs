@@ -16,7 +16,7 @@ public static class CardArtLibrary
 
     // 在这些子目录（外加根目录 ""）下按“类名.png”查找。
     // ★ 你每新建一个子目录，都要把它的名字加到这个数组里（pck 里无法自动列目录）。
-    public static string[] SubFolders = { "", "defect", "regent", "colorless", "curse", "status", "power" };
+    public static string[] SubFolders = { "", "colorless", "curse", "status"};
     private static readonly string[] Exts = { ".png", ".jpg", ".jpeg" };
 
     public static int Count => _cache.Count;
