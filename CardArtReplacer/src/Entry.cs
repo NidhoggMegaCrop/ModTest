@@ -29,6 +29,13 @@ public class Entry
     // 全图异画：把整卡换成你的图（隐藏卡框/立绘窗口/横幅）。设 false 则退回“只换立绘窗口”。
     public static bool FullArt = true;
 
+    // 类型文框（状态/诅咒/攻击…）移到卡片底部居中（仅对全图卡）。
+    public static bool MoveTypePlaqueToBottom = true;
+    public static float TypePlaqueBottomMargin = 12f;
+
+    // 诊断：把“类名包含此串”的卡的节点树 dump 到日志，用于定位某张卡的多余边框。空=关。
+    public static string DumpCardName = "";
+
     // 调试：反射 dump NCard 成员。已搞清结构，默认关闭；需要再看时设 true。
     public static bool DumpCardNodes = false;
 
