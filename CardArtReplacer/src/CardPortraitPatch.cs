@@ -28,25 +28,31 @@ public static class CardPortraitPatch
     static readonly System.Collections.Generic.HashSet<string> _seen = new();
 
     // 官方 Postfix：把卡图路径替换成我们的图。__instance 即 CardModel 实例。
+    // 整体 try/catch：这是挂在 getter 上的补丁，绝不能把异常冒到调用方（否则会破坏
+    // 详情界面等处的卡图加载，且可能连累别的 mod 的卡）。
     static void Postfix(object __instance, ref string __result)
     {
-        string? className = __instance?.GetType().Name;      // 卡牌用类名标识，如 BigBang / AllForOne
-        if (string.IsNullOrEmpty(className)) return;
-
-        string? path = CardArtLibrary.ResolvePath(className);
-
-        // 发现模式：把遇到的卡牌类名打进日志（每个只打一次），方便你确定文件该叫什么。
-        if (Entry.DiscoverCardNames && _seen.Add(className))
+        try
         {
-            string hint = path != null
-                ? $"matched: {path}"
-                : $"no art — put {CardArtLibrary.PreferredFileName(className)} under res://{Entry.ModId}/image/cards/<subfolder>/";
-            Entry.LogInfo($"card class: {className}  ->  {hint}");
-        }
+            string? className = __instance?.GetType().Name;  // 卡牌用类名标识，如 BigBang / AllForOne
+            if (string.IsNullOrEmpty(className)) return;
 
-        if (path == null) return;                            // 没配图：保留原版
-        if (!ResourceLoader.Exists(path)) return;
-        __result = path;
+            string? path = CardArtLibrary.ResolvePath(className);
+
+            // 发现模式：把遇到的卡牌类名打进日志（每个只打一次），方便你确定文件该叫什么。
+            if (Entry.DiscoverCardNames && _seen.Add(className))
+            {
+                string hint = path != null
+                    ? $"matched: {path}"
+                    : $"no art — put {CardArtLibrary.PreferredFileName(className)} under res://{Entry.ModId}/image/cards/<subfolder>/";
+                Entry.LogInfo($"card class: {className}  ->  {hint}");
+            }
+
+            if (path == null) return;                        // 没配图：保留原版，绝不动 __result
+            if (!ResourceLoader.Exists(path)) return;
+            __result = path;
+        }
+        catch (System.Exception e) { Entry.LogInfo($"[portrait] error: {e.Message}"); }
     }
 }
 
