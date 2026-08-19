@@ -36,9 +36,14 @@ public class Entry
     // 诊断：把“类名包含此串”的卡的节点树 dump 到日志，用于定位某张卡的多余边框。空=关。
     public static string DumpCardName = "";
 
+    // 总开关：设为 false 时，mod 照常加载、pck 照常挂载，但一个补丁都不打。
+    // 用于隔离“是 dll 补丁还是 pck 资源”导致的问题。
+    public static bool Enabled = true;
+
     public static void Init()
     {
         LogInfo("init begin");
+        if (!Enabled) { LogInfo("Enabled=false：跳过所有补丁（仅用于隔离测试）。"); return; }
 
         var harmony = new Harmony("sts2." + ModId.ToLowerInvariant());
         harmony.PatchAll();
